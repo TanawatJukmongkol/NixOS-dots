@@ -85,13 +85,14 @@
     # Internet / Social media
     firefox
     chromium
-    discord
+    vesktop # discord, but doesn't suck
     # VM
     virt-manager
     # Games
     osu-lazer-bin
     # Misc.
     obsidian
+    glava
     # Fonts
     (nerdfonts.override {
       fonts = [ "Hack" "FiraCode" ];

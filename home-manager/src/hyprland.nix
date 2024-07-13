@@ -1,10 +1,11 @@
 {
+  pkgs,
+  inputs,
   ...
 } : {
-
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    # xwayland.enable = true;
     settings = {
       "$mod" = "SUPER";
       # debug = { disable_logs = false; };
@@ -81,7 +82,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
         workspace_swipe = "on";
         workspace_swipe_distance = "200";
-        # workspace_swipe_cancel = "ratio, 0.35";
+        workspace_swipe_cancel_ratio = "0.35";
         workspace_swipe_use_r = "true";
       };
     };
@@ -116,5 +117,8 @@
       ### Reset ###
       submap = reset
     '';
+    # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    #   hyprwinwrap
+    # ];
   };
 }

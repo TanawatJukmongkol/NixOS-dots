@@ -18,6 +18,8 @@
       nvidia-vaapi-driver
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       # intel-vaapi-driver # LIBVA_DRIVER_NAME=i965
+      intel-media-sdk # Intel QSV
+      #vpl-gpu-rt # Intel VPL
       libvdpau-va-gl
       vaapiVdpau
       mesa
@@ -33,12 +35,12 @@
     };
     prime = {
       offload = {
-        enable = lib.mkOverride 990 true;
-        enableOffloadCmd = lib.mkIf config.hardware.nvidia.prime.offload.enable true;
+        enable = true;
+        enableOffloadCmd = true;
       };
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }

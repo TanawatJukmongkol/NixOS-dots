@@ -22,7 +22,7 @@
   #   enable = true;
   #   wayland = {
   #     enable = true;
-  #     compositorCommand = "Hyprland";
+  #     # compositorCommand = "Hyprland";
   #   };
   # };
   services.logind.extraConfig = ''

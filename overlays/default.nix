@@ -15,12 +15,13 @@
     # ...
     # });
     intel-vaapi-driver = prev.intel-vaapi-driver.override {
-      enableHybridCodec = true;
+     enableHybridCodec = true;
     };
-    discord = prev.discord.override {
-      withOpenASAR = true;
-      # withVencord = true;
-    };
+    # Discord sucks. Use vesktop lol.
+    # discord = prev.discord.override {
+    #  withOpenASAR = true;
+    #  withVencord = true;
+    # };
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

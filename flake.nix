@@ -14,7 +14,15 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland = {
+    #   type = "git";
+    #   url = "https://github.com/hyprwm/Hyprland";
+    #   submodules = true;
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     stylix.url = "github:danth/stylix";
   };
 
@@ -22,7 +30,7 @@
     self,
     nixpkgs,
     home-manager,
-    # hyprland,
+    hyprland,
     stylix,
     ...
   } @ inputs: let
@@ -63,6 +71,7 @@
         specialArgs = {inherit inputs outputs; };
         modules = [
           # > Our main nixos configuration file <
+          # hyprland.nixosModules.default
           stylix.nixosModules.stylix
           ./nixos/configuration.nix
         ];

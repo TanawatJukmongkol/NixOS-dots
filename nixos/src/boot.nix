@@ -10,7 +10,7 @@ let
     patches = [ ../patch/hda-realtek.patch ];
   });
 in {
-  boot.kernelParams = [ "acpi_backlight=native" ];
+  boot.kernelParams = [ "acpi_backlight=native" "nvidia-drm.fbdev=1" ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" ];
   boot.loader = {
     efi.canTouchEfiVariables = true;
