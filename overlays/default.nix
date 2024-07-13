@@ -19,7 +19,7 @@
     # };
     discord = prev.discord.override {
       withOpenASAR = true;
-      withVencord = true;
+      # withVencord = true;
     };
   };
 
