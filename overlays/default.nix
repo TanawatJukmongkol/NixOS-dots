@@ -14,9 +14,9 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
-    # intel-vaapi-driver = prev.intel-vaapi-driver.override {
-    #   enableHybridCodec = true;
-    # };
+    intel-vaapi-driver = prev.intel-vaapi-driver.override {
+      enableHybridCodec = true;
+    };
     discord = prev.discord.override {
       withOpenASAR = true;
       # withVencord = true;

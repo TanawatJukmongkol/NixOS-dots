@@ -19,6 +19,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./src/boot.nix
+    ./src/hardware.nix
     ./src/services.nix
     ./src/locale.nix
     ./src/networking.nix

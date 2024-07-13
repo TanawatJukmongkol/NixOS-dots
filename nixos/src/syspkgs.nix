@@ -10,9 +10,10 @@
     gzip
     unzip
     brightnessctl
-    rofi-bluetooth
     pulseaudio
     direnv
+    bluez
+    bluez-tools
     # Manuals
     man-pages
     man-pages-posix

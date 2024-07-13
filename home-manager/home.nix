@@ -63,6 +63,7 @@
     fastfetch
     waybar
     rofi-wayland
+    rofi-bluetooth
     hyprpaper
     # hyprnome ???
     hyprlock
