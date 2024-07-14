@@ -1,14 +1,54 @@
 {
-  # pkgs,
+  pkgs,
   # inputs,
   ...
 } : {
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+  ];
+  services.mako.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
     # xwayland.enable = true;
     settings = {
       "$mod" = "SUPER";
       # debug = { disable_logs = false; };
+      general = {
+        gaps_in = 14;
+        gaps_out = 34;
+        border_size = 3;
+        layout = "dwindle";
+        resize_on_border = true;
+      };
+      decoration = {
+        rounding = 8;
+        blur = {
+          enabled = true;
+          size = 2;
+          passes = 4;
+          new_optimizations = true;
+        };
+        drop_shadow = "yes";
+        shadow_range = 20;
+        shadow_render_power = 4;
+      };
+      animations = {
+        bezier = [
+          "smooth, 0.14, 0.03, 0.09, 1"
+          "ease, 0.25, 0.1, 0.25, 1"
+          "ease-win, 0.27, 0.27, 0, 1.01"
+        ];
+        animation = [
+          # "windows, 1, 7, default"
+          "windows, 1, 3.5, ease-win"
+          "windowsOut, 1, 6, default, popin 85%"
+          "border, 1, 7, smooth"
+          "borderangle, 1, 8, default"
+          # "fade, 1, 7, default"
+          "workspaces, 1, 2.5, ease"
+        ];
+      };
       misc = {
         disable_hyprland_logo = true;
       };
@@ -16,6 +56,7 @@
         "hyprpaper"
         "waybar"
         "wl-paste --watch cliphist store"
+        "fcitx5"
       ];
       env = [
         "GDK_BACKEND,wayland,x11,remmina"
@@ -31,7 +72,7 @@
         "QT_IM_MODULE,fcitx"
 
         #"WLR_NO_HARDWARE_CURSORS,1"
-        #"WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+        "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
       ];
       monitor = [
         "eDP-1 , highres, auto, 1.25"
@@ -46,6 +87,8 @@
         "$mod, L, exec, hyprlock"
         # Clipboard
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        # Screenshot
+        "$mod, Print, exec, hyprshot -m region"
         # Window
         "$mod, C, killactive"
         "$mod, M, fullscreen, 1"

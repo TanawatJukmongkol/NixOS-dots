@@ -65,6 +65,7 @@
     rofi-wayland
     rofi-bluetooth
     hyprpaper
+    btop
     # hyprnome ???
     hyprlock
     hypridle
@@ -93,6 +94,7 @@
     # Misc.
     obsidian
     glava
+    mangohud
     # Fonts
     (nerdfonts.override {
       fonts = [ "Hack" "FiraCode" ];
@@ -129,6 +131,8 @@
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       transparent-nvim
+      vim-airline
+      vim-airline-themes
       # nvim-treesitter.withAllGrammars
     ];
     extraConfig = ''
@@ -147,6 +151,9 @@
 
       hi Pmenu	ctermfg=white ctermbg=black gui=NONE guifg=white guibg=black
       hi PmenuSel	ctermfg=white ctermbg=blue gui=bold guifg=white guibg=purple
+      
+      let g:airline_powerline_fonts = 1
+      let g:airline_theme='owo'
     '';
   };
   gtk = {
