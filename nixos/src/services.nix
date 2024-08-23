@@ -53,6 +53,13 @@
     alsa.enable = true;
     pulse.enable = true;
   };
+  services.jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback = {
+      enable = true;
+    };
+  };
   services.udisks2.enable = true;
   services.gvfs.enable = true;
   services.udev.packages = [ pkgs.android-udev-rules ];
