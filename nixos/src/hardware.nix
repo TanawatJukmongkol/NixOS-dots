@@ -4,6 +4,7 @@
   config,
   ...
 } : {
+  hardware.enableAllFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
   hardware.intel-gpu-tools.enable = true;
   hardware.bluetooth = {

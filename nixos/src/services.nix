@@ -9,22 +9,22 @@
     #   enable = true;
     #   greeters.slick.enable = true;
     # };
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+    # displayManager.gdm = {
+    #   enable = true;
+    #   wayland = true;
+    # };
     xkb = {
       variant = "";
       layout = "us";
     };
   };
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland = {
-  #     enable = true;
-  #     # compositorCommand = "Hyprland";
-  #   };
-  # };
+  services.displayManager.sddm = {
+    enable = true;
+    wayland = {
+      enable = true;
+      # compositorCommand = "Hyprland";
+    };
+  };
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
     HandleLidSwitch=suspend-then-hibernate

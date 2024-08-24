@@ -11,14 +11,7 @@
     enable = true;
     indicator = true;
   };
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "sudo" "docker" "kubectl" ];
-    };
-  };
+  programs.zsh.enable = true;
   programs.dconf.enable = true;
   programs.nix-ld = {
     enable = true;
