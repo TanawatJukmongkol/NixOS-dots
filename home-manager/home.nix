@@ -63,6 +63,7 @@
 		# Util
 		appimage-run
 		nvtopPackages.full
+		cava
 		# fastfetch
 		waybar
 		rofi-wayland

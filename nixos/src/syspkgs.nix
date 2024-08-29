@@ -34,5 +34,7 @@
 		python3
 		# Default minimal text editor
 		nano
+		# Custom packages
+		sddm-theme
 	];
 }
