@@ -71,10 +71,11 @@
 		hyprpaper
 		btop
 		# hyprnome ???
-		hyprlock
-		hypridle
+		# hyprlock
+		# hypridle
 		hyprpicker
 		hyprshot
+		wleave
 		wl-clipboard
 		cliphist
 		# File management

@@ -20,10 +20,8 @@
   };
   services.displayManager.sddm = {
     enable = true;
-    wayland = {
-      enable = true;
-      # compositorCommand = "Hyprland";
-    };
+    theme = "sddm_theme_qt5";
+    wayland.enable = true;
   };
   services.logind.extraConfig = ''
     HandlePowerKey=ignore

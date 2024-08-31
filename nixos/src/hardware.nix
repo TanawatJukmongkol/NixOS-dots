@@ -20,11 +20,11 @@
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       # intel-vaapi-driver # LIBVA_DRIVER_NAME=i965
       intel-media-sdk # Intel QSV
-      #vpl-gpu-rt # Intel VPL
+      # vpl-gpu-rt # Intel VPL
       libvdpau-va-gl
       vaapiVdpau
-      mesa
-      libGL
+      # mesa
+      # libGL
     ];
   };
   hardware.nvidia = {

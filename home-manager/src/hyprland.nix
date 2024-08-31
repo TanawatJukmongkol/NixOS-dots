@@ -14,9 +14,6 @@
 		settings = {
 			"$mod" = "SUPER";
 			# debug = { disable_logs = false; };
-			source = [
-				"~/.config/hypr/monitors.conf"
-			];
 			general = {
 				gaps_in = 14;
 				gaps_out = 34;
@@ -69,7 +66,7 @@
 				"SDL_VIDEODRIVER,wayland"
 				"CLUTTER_BACKEND,wayland"
 				"XDG_SESSION_TYPE,wayland"
-				"NIXOS_OZONE_WL,y"
+				"NIXOS_OZONE_WL,1"
 
 				"MOZ_ENABLE_WAYLAND,1"
 				"MOZ_DBUS_REMOTE,1"
@@ -80,17 +77,17 @@
 				#"WLR_NO_HARDWARE_CURSORS,1"
 				"WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 			];
-			# monitor = [
-			#		"eDP-1 , highres, auto, 1.25"
-			#		", highres, auto, auto"
-			# ];
+			monitor = [
+				"eDP-1 , highres, auto, 1.25"
+				", highres, auto, auto"
+			];
 			bind = [
 				# Terminal
 				"CTRL ALT, T, exec, kitty"
 				# Exit (temporary)
-				"$mod, escape, exec, hyprctl dispatch exit"
+				"$mod, escape, exec, pidof wleave || wleave -p layer-shell"
 				# Lockscreen
-				"$mod, L, exec, hyprlock"
+				"CTRL ALT, L, exec, hyprlock"
 				# Application
 				"$mod, E, exec, xdg-open ~"
 				# Clipboard
@@ -130,6 +127,7 @@
 				"$mod SHIFT, 8, movetoworkspace, 8"
 				"$mod SHIFT, 9, movetoworkspace, 9"
 				"$mod SHIFT, 0, movetoworkspace, 10"
+				
 				"$mod, left, movefocus, l"
 				"$mod, left, bringactivetotop,"
 				"$mod, right, movefocus, r"
@@ -137,12 +135,29 @@
 				"$mod, up, movefocus, u"
 				"$mod, up, bringactivetotop,"
 				"$mod, down, movefocus, d"
-				"$mod, down, bringactivetotop,"
+				
+				"$mod, H, movefocus, l"
+				"$mod, H, bringactivetotop,"
+				"$mod, L, movefocus, r"
+				"$mod, L, bringactivetotop,"
+				"$mod, K, movefocus, u"
+				"$mod, K, bringactivetotop,"
+				"$mod, J, movefocus, d"
+				"$mod, J, bringactivetotop,"
 
 				# submaps
 				"ALT CTRL, escape, submap, passthrough"
 				"ALT, M, submap, movewindow"
 				"ALT, R, submap, resizewindow"
+			];
+			bindel = [
+				", XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume.sh raise"
+				", XF86AudioLowerVolume, exec, ~/.config/hypr/scripts/volume.sh lower"
+				", XF86MonBrightnessUp, exec, brightnessctl -d intel_backlight set +2%"
+				", XF86MonBrightnessDown, exec, brightnessctl -d intel_backlight set 2%-"
+			];
+			bindl = [
+				", XF86AudioMute, exec, ~/.config/hypr/scripts/volume.sh mute"
 			];
 			bindm = [
 				"$mod, mouse:272, movewindow"
@@ -191,4 +206,42 @@
 		#		hyprwinwrap
 		# ];
 	};
+	programs.hyprlock = {
+		enable = true;
+		settings = {
+			general = {
+				disable_loading_bar = true;
+				grace = 3;
+				hide_cursor = true;
+				no_fade_in = false;
+			};
+
+			background = [
+				{
+					path = "screenshot";
+					blur_passes = 3;
+					blur_size = 8;
+				}
+			];
+
+			input-field = [
+				{
+					size = "200, 50";
+					position = "0, -80";
+					monitor = "";
+					dots_center = true;
+					fade_on_empty = false;
+					font_color = "rgb(202, 211, 245)";
+					inner_color = "rgb(91, 96, 120)";
+					outer_color = "rgb(24, 25, 38)";
+					outline_thickness = 5;
+					placeholder_text = ''<span foreground="##cad3f5">Password...</span>'';
+					shadow_passes = 2;
+				}
+			];
+		};
+	};
+	#programs.hypridle = {
+	#	enable = true;
+	#};
 }
