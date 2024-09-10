@@ -30,7 +30,7 @@ in {
     };
   };
 
-  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia_uvm" ];
+  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia_uvm" "hp-wmi" ];
   boot.extraModulePackages = [
     (lib.hiPrio patched)
   ];

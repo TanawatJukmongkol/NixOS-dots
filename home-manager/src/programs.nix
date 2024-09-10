@@ -185,28 +185,4 @@
 			];
 		};
 	};
-  services.mako = {
-    enable = true;
-	extraConfig = ''
-background-color=#282a36af
-text-color=#f4f7fa
-border-color=#282a36
-progress-color=#00ffff3a
-border-radius=5
-margin=5, 20
-width=375
-height=175
-layer=overlay
-
-[urgency=low]
-border-color=#879a9c
-default-timeout=7000
-
-[urgency=normal]
-border-color=#b0cfd1
-default-timeout=10000
-
-[urgency=high]
-border-color=#d1a8f0'';
-  };
 }

@@ -50,16 +50,11 @@
     wireplumber.enable = true;
     alsa.enable = true;
     pulse.enable = true;
-  };
-  services.jack = {
-    jackd.enable = true;
-    alsa.enable = false;
-    loopback = {
-      enable = true;
-    };
+	jack.enable = true;
   };
   services.udisks2.enable = true;
   services.gvfs.enable = true;
+  services.fstrim.enable = true;
   services.udev.packages = [ pkgs.android-udev-rules ];
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
