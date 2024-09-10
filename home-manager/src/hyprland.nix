@@ -7,7 +7,6 @@
 		xdg-desktop-portal
 		xdg-desktop-portal-gtk
 	];
-	services.mako.enable = true;
 	wayland.windowManager.hyprland = {
 		enable = true;
 		# xwayland.enable = true;
@@ -249,10 +248,12 @@
 				before_sleep_cmd = "loginctl lock-session";
 				after_sleep_cmd = "hyprctl dispatch dpms on";
 			};
-			listener = {
-				timeout = "80";
-				on-timeout = "loginctl lock-session";
-			};
+			listener = [
+				{
+					timeout = "80";
+					on-timeout = "loginctl lock-session";
+				}
+			];
 		};
 	};
 }

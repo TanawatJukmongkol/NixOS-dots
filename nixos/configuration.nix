@@ -27,6 +27,7 @@
     ./src/programs.nix
     ./src/virtualization.nix
     ./src/stylix.nix
+    ./src/stylix-nixos.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix

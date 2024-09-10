@@ -65,10 +65,11 @@
 				config = toLua ''
 					require("mason").setup()
 					require("mason-lspconfig").setup {
-						ensure_installed = { "nil_ls", "clangd" }
+						ensure_installed = { "nil_ls", "clangd", "rust_analyzer" }
 					}
 					require("lspconfig").nil_ls.setup {}
 					require("lspconfig").clangd.setup {}
+					require("lspconfig").rust_analyzer.setup {}
 				'';
 			}
 			cmp-nvim-lsp cmp-buffer cmp-path cmp-cmdline {
@@ -86,6 +87,7 @@
 						sources = {
 							{ name = 'nvim_lsp' },
 							{ name = 'buffer' },
+							{ name = 'rust_analyzer' },
 						}
 					}
 					cmp.setup.cmdline({ '/', '?' }, {
@@ -114,6 +116,7 @@
 					p.tree-sitter-python
 					p.tree-sitter-json
 					p.tree-sitter-c
+					p.tree-sitter-rust
 				]));
 				config = toLua ''
 					require('nvim-treesitter.configs').setup {
@@ -182,4 +185,28 @@
 			];
 		};
 	};
+  services.mako = {
+    enable = true;
+	extraConfig = ''
+background-color=#282a36af
+text-color=#f4f7fa
+border-color=#282a36
+progress-color=#00ffff3a
+border-radius=5
+margin=5, 20
+width=375
+height=175
+layer=overlay
+
+[urgency=low]
+border-color=#879a9c
+default-timeout=7000
+
+[urgency=normal]
+border-color=#b0cfd1
+default-timeout=10000
+
+[urgency=high]
+border-color=#d1a8f0'';
+  };
 }

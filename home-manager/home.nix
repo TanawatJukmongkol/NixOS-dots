@@ -71,8 +71,6 @@
 		hyprpaper
 		btop
 		# hyprnome ???
-		# hyprlock
-		# hypridle
 		hyprpicker
 		hyprshot
 		wleave
@@ -88,6 +86,7 @@
 		obs-studio
 		miru
 		yt-dlp
+		subtitleeditor
 		# Internet / Social media
 		firefox
 		chromium

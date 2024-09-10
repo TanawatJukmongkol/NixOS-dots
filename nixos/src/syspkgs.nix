@@ -1,5 +1,6 @@
 {
 	pkgs,
+  config,
 	...
 } : {
 	environment.systemPackages = with pkgs; [
@@ -14,6 +15,8 @@
 		direnv
 		bluez
 		bluez-tools
+		# driver
+		xp-pen-g430-driver
 		# Manuals
 		man-pages
 		man-pages-posix
@@ -37,7 +40,7 @@
 		# Custom packages
 		(sddm-theme.override {
 			themeConfig.General = {
-				background = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+				background = "${config.stylix.image}";
 				backgroundMode = "none";
 			};
 		})
