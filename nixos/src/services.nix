@@ -18,10 +18,16 @@
       layout = "us";
     };
   };
-  services.displayManager.sddm = {
-    enable = true;
-    theme = "sddm_theme_qt5";
-    wayland.enable = true;
+  services.displayManager = {
+	sddm = {
+   		enable = true;
+   		theme = "sddm_theme_qt5";
+   		wayland.enable = true;
+  	};
+	autoLogin = {
+		enable = true;
+		user = "airgeddon1337";
+	};
   };
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
