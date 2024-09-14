@@ -9,10 +9,13 @@
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
-		# xwayland.enable = true;
 		settings = {
 			"$mod" = "SUPER";
 			# debug = { disable_logs = false; };
+			xwayland = {
+				force_zero_scaling = true;
+				use_nearest_neighbor = true;
+			};
 			general = {
 				gaps_in = 14;
 				gaps_out = 34;

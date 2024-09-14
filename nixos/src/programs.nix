@@ -21,4 +21,7 @@
       libGLU
     ];
   };
+  programs.steam = {
+    enable = true;
+  };
 }

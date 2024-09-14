@@ -1,17 +1,14 @@
-
 {
   pkgs,
   ...
 } : {
   stylix = {
     enable = true;
-    # image = "${/home/airgeddon1337/Pictures/Background/Tranquil.png}";
-    # image = "${/home/airgeddon1337/Pictures/Background/nixos.png}";
-    image = "${/home/airgeddon1337/Pictures/Background/tokyo_night.jpg}";
-    # image = "${/home/airgeddon1337/Pictures/Background/pastel.jpg}";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    image = "${../../assets/background/Alya.png}";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    cursor = {
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+	cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };

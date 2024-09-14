@@ -98,7 +98,6 @@
 		# Misc.
 		obsidian
 		glava
-		mangohud
 		# Fonts
 		(nerdfonts.override {
 			fonts = [ "Hack" "FiraCode" ];
@@ -114,6 +113,13 @@
 			name = "Flat-Remix-Cyan-Dark";
 			package = pkgs.flat-remix-icon-theme;
 		};
+	};
+	home.sessionVariables = {
+		EDITOR = "nvim";
+		NIXPKGS_ALLOW_UNFREE = 1;
+		XMODIFIERS = "@im=fcitx";
+		GTK_IM_MODULE = "";
+		QT_IM_MODULE = "";
 	};
 
 # Nicely reload system units when changing configs
