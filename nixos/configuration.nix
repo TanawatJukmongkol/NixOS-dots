@@ -110,6 +110,7 @@
 		"libvirt"
 		"adbusers"
 		"power"
+		"input"
 	  ];
     };
   };

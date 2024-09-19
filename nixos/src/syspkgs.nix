@@ -17,6 +17,7 @@
 		bluez-tools
 		# driver
 		xp-pen-g430-driver
+		maschine-mikro-mk3-driver
 		# Manuals
 		man-pages
 		man-pages-posix

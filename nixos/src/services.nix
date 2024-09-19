@@ -61,7 +61,10 @@
   services.udisks2.enable = true;
   services.gvfs.enable = true;
   services.fstrim.enable = true;
-  services.udev.packages = [ pkgs.android-udev-rules ];
+  services.udev.packages = with pkgs; [
+    android-udev-rules
+    maschine-mikro-mk3-driver
+  ];
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
   '';
