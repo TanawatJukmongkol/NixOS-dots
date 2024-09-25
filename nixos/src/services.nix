@@ -76,4 +76,5 @@
       # PasswordAuthentication = false;
     };
   };
+  services.dbus.packages = [ pkgs.libsForQt5.kpmcore ];
 }

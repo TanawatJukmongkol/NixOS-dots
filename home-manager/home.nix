@@ -22,6 +22,7 @@
 		./src/stylix-home.nix
 		./src/hyprland.nix
 		./src/programs.nix
+    ./src/systemd.nix
 	];
 
 	nixpkgs = {
@@ -121,9 +122,6 @@
 		GTK_IM_MODULE = "";
 		QT_IM_MODULE = "";
 	};
-
-# Nicely reload system units when changing configs
-	systemd.user.startServices = "sd-switch";
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 	home.stateVersion = "24.05";

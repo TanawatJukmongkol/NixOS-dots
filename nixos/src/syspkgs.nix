@@ -15,6 +15,8 @@
 		direnv
 		bluez
 		bluez-tools
+		partition-manager
+		isoimagewriter
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
@@ -35,7 +37,9 @@
 		nixd
 		# Common packags
 		git
+		# Scripting Language
 		python3
+		nodejs
 		# Default minimal text editor
 		nano
 		# Custom packages
