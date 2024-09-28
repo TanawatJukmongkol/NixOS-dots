@@ -22,7 +22,8 @@
 		./src/stylix-home.nix
 		./src/hyprland.nix
 		./src/programs.nix
-    ./src/systemd.nix
+		./src/systemd.nix
+		./src/environment.nix
 	];
 
 	nixpkgs = {
@@ -92,6 +93,7 @@
 		firefox
 		chromium
 		vesktop # discord, but doesn't suck
+		irssi-v123
 		# VM
 		virt-manager
 		# Games
@@ -114,13 +116,6 @@
 			name = "Flat-Remix-Cyan-Dark";
 			package = pkgs.flat-remix-icon-theme;
 		};
-	};
-	home.sessionVariables = {
-		EDITOR = "nvim";
-		NIXPKGS_ALLOW_UNFREE = 1;
-		XMODIFIERS = "@im=fcitx";
-		GTK_IM_MODULE = "";
-		QT_IM_MODULE = "";
 	};
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

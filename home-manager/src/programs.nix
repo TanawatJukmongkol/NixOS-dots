@@ -34,6 +34,7 @@
 			map kitty_mod+n			new_os_window_with_cwd
 			map kitty_mod+enter		new_window_with_cwd
 		'';
+		package = pkgs.unstable.kitty;
 	};
 	programs.neovim =
 	let
@@ -65,10 +66,16 @@
 				config = toLua ''
 					require("mason").setup()
 					require("mason-lspconfig").setup {
-						ensure_installed = { "nil_ls", "clangd", "rust_analyzer" }
+						ensure_installed = {
+							"nil_ls",
+							"clangd",
+							"rust_analyzer"
+						}
 					}
 					require("lspconfig").nil_ls.setup {}
-					require("lspconfig").clangd.setup {}
+					require("lspconfig").clangd.setup {
+						cmd = {"/run/current-system/sw/bin/clangd"},
+					}
 					require("lspconfig").rust_analyzer.setup {}
 				'';
 			}

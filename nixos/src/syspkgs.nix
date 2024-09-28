@@ -34,10 +34,11 @@
 		lldb
 		# Language servers
 		clang
+		clang-tools
 		nixd
 		# Common packags
 		git
-		# Scripting Language
+		# Programming Language
 		python3
 		nodejs
 		# Default minimal text editor
