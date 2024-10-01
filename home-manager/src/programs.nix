@@ -213,4 +213,16 @@
 			frame_timing=1;
 		};
 	};
+	programs.vscode = {
+		enable = true;
+		package = pkgs.unstable.vscodium;
+		extensions = (with pkgs.nix-vscode-extensions; [
+			open-vsx.jnoortheen.nix-ide
+			open-vsx.ms-azuretools.vscode-docker
+			open-vsx.jeanp413.open-remote-ssh
+			open-vsx.pkief.material-icon-theme
+			open-vsx.llvm-vs-code-extensions.vscode-clangd
+			vscode-marketplace.leonardssh.vscord
+		]);
+	};
 }

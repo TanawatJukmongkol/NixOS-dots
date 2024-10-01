@@ -22,6 +22,7 @@
     #  withOpenASAR = true;
     #  withVencord = true;
     # };
+    nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${final.system};
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

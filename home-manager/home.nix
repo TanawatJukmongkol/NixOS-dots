@@ -82,7 +82,7 @@
 		dolphin
 		ark
 		# Editors
-		vscodium
+		# vscodium
 		# Media
 		mpv
 		obs-studio
