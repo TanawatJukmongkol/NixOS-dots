@@ -48,6 +48,32 @@
 		vimdiffAlias = true;
 		plugins = with pkgs.vimPlugins; [
 			transparent-nvim
+			{
+				plugin = telescope-nvim;
+				config = toLua ''
+					local builtin = require('telescope.builtin')
+					require('telescope').setup{
+						defaults = {
+							-- Default configuration for telescope goes here:
+							-- config_key = value,
+							mappings = {
+								i = {
+									-- map actions.which_key to <C-h> (default: <C-/>)
+									-- actions.which_key shows the mappings for your picker,
+									-- e.g. git_{create, delete, ...}_branch for the git_branches picker
+									["<C-h>"] = "which_key"
+								}
+							}
+						},
+						pickers = {},
+						extensions = {}
+					}
+					vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+					vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+					vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+					vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+				'';
+			}
 			vim-airline {
 				plugin = vim-airline-themes;
 				config = ''
@@ -72,7 +98,9 @@
 							"rust_analyzer"
 						}
 					}
-					require("lspconfig").nil_ls.setup {}
+					require("lspconfig").nil_ls.setup {
+						cmd = {"/run/current-system/sw/bin/nixd";}
+					}
 					require("lspconfig").clangd.setup {
 						cmd = {"/run/current-system/sw/bin/clangd"},
 					}
