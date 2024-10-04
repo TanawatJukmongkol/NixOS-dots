@@ -28,4 +28,5 @@
     ];
   };
   programs.partition-manager.enable = true;
+  programs.wireshark.enable = true;
 }

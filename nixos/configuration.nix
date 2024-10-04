@@ -111,6 +111,7 @@
 		"adbusers"
 		"power"
 		"input"
+		"wireshark"
 	  ];
     };
   };

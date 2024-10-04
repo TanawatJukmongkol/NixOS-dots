@@ -94,6 +94,7 @@
 		chromium
 		vesktop # discord, but doesn't suck
 		irssi-v123
+		wireshark-qt
 		# VM
 		virt-manager
 		# Games

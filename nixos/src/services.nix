@@ -67,6 +67,7 @@
   ];
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+    SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
   '';
   services.openssh = {
     enable = true;
