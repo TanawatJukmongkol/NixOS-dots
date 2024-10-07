@@ -250,7 +250,11 @@
 			open-vsx.jeanp413.open-remote-ssh
 			open-vsx.pkief.material-icon-theme
 			open-vsx.llvm-vs-code-extensions.vscode-clangd
+			open-vsx.medo64.render-crlf
 			vscode-marketplace.leonardssh.vscord
 		]);
+		userSettings = {
+			"editor.renderWhitespace" = "all";
+		};
 	};
 }

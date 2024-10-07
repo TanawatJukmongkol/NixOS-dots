@@ -4,7 +4,8 @@
 } : {
   stylix = {
     enable = true;
-    image = "${../../assets/background/Alya.png}";
+    #image = "${../../assets/background/Alya.png}";
+    image = "${../../assets/background/halloween.png}";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
