@@ -4,6 +4,9 @@
 } : {
   services.xserver = {
     enable = true;
+	excludePackages = with pkgs; [
+		xterm
+	];
     videoDrivers = [ "intel" "nvidia" ];
     # displayManager.lightdm = {
     #   enable = true;

@@ -81,6 +81,7 @@
 		# File management
 		dolphin
 		ark
+		yazi
 		# Editors
 		# vscodium
 		# Media
