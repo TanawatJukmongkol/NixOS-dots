@@ -211,9 +211,9 @@
 			### Reset ###
 			submap = reset
 		'';
-		plugins = with pkgs.hyprland-plugins; [
-			# hyprwinwrap
-		];
+		# plugins = with pkgs.hyprland-plugins; [
+		# 	hyprwinwrap
+		# ];
 	};
 	programs.hyprlock = {
 		enable = true;
@@ -233,11 +233,22 @@
 				}
 			];
 
+			image = {
+				path = "/home/airgeddon1337/.face";
+				monitor = "eDP-1";
+				position = "0, 60";
+				rounding = -1;
+				border_size = 4;
+				border_color = "rgb(221, 221, 221)";
+				halign = "center";
+				valign = "center";
+			};
+
 			input-field = [
 				{
 					size = "200, 50";
 					position = "0, -80";
-					monitor = "";
+					monitor = "eDP-1";
 					dots_center = true;
 					fade_on_empty = false;
 					font_color = "rgb(202, 211, 245)";
