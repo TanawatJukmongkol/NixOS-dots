@@ -22,6 +22,8 @@
     #  withOpenASAR = true;
     #  withVencord = true;
     # };
+    hyprland-flake = inputs.hyprland.packages.${final.system}.hyprland;
+    hyprland-plugins = inputs.hyprland-plugins.packages.${final.system};
     nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${final.system};
   };
 
