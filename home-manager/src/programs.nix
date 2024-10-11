@@ -255,6 +255,7 @@
 		]);
 		userSettings = {
 			"editor.renderWhitespace" = "all";
+			"terminal.integrated.enablePersistentSessions" = false;
 		};
 	};
 }
