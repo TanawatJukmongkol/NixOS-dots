@@ -129,7 +129,7 @@
 	xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
 		General.theme = "Default";
 	};
-	
+
 	xdg.configFile."Kvantum/Default".source = (pkgs.formats.ini {}).generate "Default.kvconfig" {
 		"@General" = {
 			translucent_windows = true;

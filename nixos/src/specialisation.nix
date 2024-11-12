@@ -3,10 +3,14 @@
 }:
 {
 	specialisation = {
-		no-acpi-patch.configuration = {
-			system.nixos.tags = [ "no-acpi-patch" ];
-			boot.loader = {
-				grub.extraConfig = null;
+		no-patch.configuration = {
+			system.nixos.tags = [ "no-patch" ];
+			environment.etc."specialisation".text = "no-patch";
+			boot = {
+				loader = {
+					grub.extraConfig = "";
+				};
+				extraModulePackages = [];
 			};
 		};
 	};

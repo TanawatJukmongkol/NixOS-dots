@@ -58,7 +58,7 @@
 				disable_hyprland_logo = true;
 			};
 			exec-once = [
-				"hyprpaper"
+				# "hyprpaper"
 				"waybar"
 				"wl-paste --watch cliphist store"
 				"fcitx5"
@@ -104,6 +104,10 @@
 				"$mod SHIFT, P, pin"
 				"$mod SHIFT, M, fullscreen, 0"
 				"$mod, F, togglefloating"
+				"$mod, G, togglegroup"
+				"CTRL ALT, G, lockgroups, toggle"
+				"CTRL ALT, right, changegroupactive, f"
+				"CTRL ALT, left, changegroupactive, b"
 				"$mod, return, exec, rofi -show drun"
 				# Move to workspace
 				"$mod CTRL, left, workspace, r-1"
@@ -268,6 +272,8 @@
 				lock_cmd = "pidof hyprlock || hyprlock";
 				before_sleep_cmd = "loginctl lock-session";
 				after_sleep_cmd = "hyprctl dispatch dpms on";
+				ignore_systemd_inhibit = false;
+				ignore_dbus_inhibit = false;
 			};
 			listener = [
 				{

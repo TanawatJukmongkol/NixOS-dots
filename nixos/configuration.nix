@@ -17,9 +17,13 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
+	# Cachix
+	./cachix.nix
+
     # You can also split up your configuration and import pieces of it here:
     ./src/boot.nix
-	  ./src/hardware.nix
+    ./src/specialisation.nix
+    ./src/hardware.nix
     ./src/services.nix
     ./src/locale.nix
     ./src/networking.nix
@@ -69,9 +73,6 @@
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
       auto-optimise-store = true;
-      # Cachix
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;

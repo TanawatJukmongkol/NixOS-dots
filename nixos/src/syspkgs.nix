@@ -4,8 +4,9 @@
 	...
 } : {
 	environment.systemPackages = with pkgs; [
-		# home manager
+		# home manager + cachix
 		home-manager
+		cachix
 		# System utils
 		tree
 		gzip
@@ -17,6 +18,7 @@
 		bluez-tools
 		partition-manager
 		isoimagewriter
+		waypipe
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
