@@ -5,7 +5,7 @@
 }:
 
 let
-  modPath = "sound/pci/hda";
+  modPath = "sound/pci/hda/";
   modDestDir = "$out/lib/modules/${kernel.modDirVersion}/kernel/${modPath}";
 
 in stdenv.mkDerivation {

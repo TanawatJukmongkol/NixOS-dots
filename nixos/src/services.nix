@@ -43,17 +43,17 @@
     package = pkgs.usbmuxd2;
   };
   services.thermald.enable = true;
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "powersave";
-      turbo = "never";
-    };
-  };
+  # services.auto-cpufreq.enable = true;
+  #services.auto-cpufreq.settings = {
+  #  battery = {
+  #    governor = "powersave";
+  #    turbo = "never";
+  #  };
+  #  charger = {
+  #    governor = "powersave";
+  #    turbo = "never";
+  #  };
+  #};
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -78,6 +78,15 @@
     settings = {
       PermitRootLogin = "no";
       # PasswordAuthentication = false;
+    };
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
     };
   };
   services.dbus.packages = [ pkgs.libsForQt5.kpmcore ];

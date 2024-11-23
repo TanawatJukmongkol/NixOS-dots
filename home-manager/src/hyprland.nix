@@ -58,7 +58,6 @@
 				disable_hyprland_logo = true;
 			};
 			exec-once = [
-				# "hyprpaper"
 				"waybar"
 				"wl-paste --watch cliphist store"
 				"fcitx5"
@@ -80,8 +79,9 @@
 				"WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 			];
 			monitor = [
-				"eDP-1 , highres, auto, 1.25"
 				", highres, auto, auto"
+				"eDP-1 , highres, auto, 1.25"
+				"eDP-1 , addreserved, 0, 0, 340, 0" # broken HP monitor :(
 			];
 			bind = [
 				# Terminal

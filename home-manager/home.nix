@@ -65,6 +65,9 @@
 		# Util
 		appimage-run
 		nvtopPackages.full
+		powertop
+		powerstat
+		usbutils
 		cava
 		# fastfetch
 		waybar

@@ -9,8 +9,13 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    # Auto-cpufreq
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     # Home manager
-    home-manager = {
+	home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -34,6 +39,7 @@
   outputs = {
     self,
     nixpkgs,
+	auto-cpufreq,
     home-manager,
     # hyprland,
     stylix,
@@ -77,6 +83,7 @@
         modules = [
           # > Our main nixos configuration file <
           # hyprland.nixosModules.default
+          auto-cpufreq.nixosModules.default
           stylix.nixosModules.stylix
           ./nixos/configuration.nix
         ];

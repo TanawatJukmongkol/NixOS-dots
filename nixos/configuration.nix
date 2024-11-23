@@ -111,7 +111,7 @@
       extraGroups = [
 	  	"networkmanager"
 		"wheel"
-		"libvirt"
+		"libvirtd"
 		"adbusers"
 		"power"
 		"input"

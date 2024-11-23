@@ -256,6 +256,7 @@
 		userSettings = {
 			"editor.renderWhitespace" = "all";
 			"terminal.integrated.enablePersistentSessions" = false;
+			"nix.serverPath" = "/run/current-system/sw/bin/nixd";
 		};
 	};
 }
