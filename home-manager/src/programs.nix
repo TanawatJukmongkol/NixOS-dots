@@ -1,6 +1,4 @@
 {
-	outputs,
-	lib,
 	pkgs,
 	...
 }: {
@@ -174,9 +172,9 @@
 			" syntax	on
 			set			nu
 			set			list
-			set			listchars+=space:⋅
-			set			listchars+=tab:→\ 
-			set			listchars+=eol:↴
+			" set			listchars+=space:⋅
+			" set			listchars+=tab:→\ 
+			" set			listchars+=eol:↴
 			hi Pmenu		ctermfg=white ctermbg=black gui=NONE guifg=white guibg=black
 			hi PmenuSel		ctermfg=white ctermbg=blue gui=bold guifg=white guibg=purple
 		'';
@@ -256,6 +254,7 @@
 		userSettings = {
 			"editor.renderWhitespace" = "all";
 			"terminal.integrated.enablePersistentSessions" = false;
+			"nix.enableLanguageServer" = true;
 			"nix.serverPath" = "/run/current-system/sw/bin/nixd";
 		};
 	};

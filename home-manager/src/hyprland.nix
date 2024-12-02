@@ -80,8 +80,7 @@
 			];
 			monitor = [
 				", highres, auto, auto"
-				"eDP-1 , highres, auto, 1.25"
-				"eDP-1 , addreserved, 0, 0, 340, 0" # broken HP monitor :(
+				"eDP-1 , highres:120, auto, 1.25"
 			];
 			bind = [
 				# Terminal
