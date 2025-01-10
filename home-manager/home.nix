@@ -99,6 +99,7 @@
 		vesktop # discord, but doesn't suck
 		irssi-v123
 		wireshark-qt
+		teams-for-linux
 		# VM
 		virt-manager
 		# Games
@@ -113,6 +114,8 @@
 		tlwg
 		noto-fonts-cjk
 		noto-fonts-emoji
+		# programming
+		poetry
 	];
 
 	gtk = {

@@ -42,7 +42,7 @@
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-    package = pkgs.unstable.linuxKernel.packages.linux_6_6.nvidia_x11;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   hardware.opentabletdriver = {
     enable = true;

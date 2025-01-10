@@ -95,6 +95,11 @@
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.defaultUserShell=pkgs.zsh;
+  users.groups = {
+    realtime = {};
+    audio = {};
+    i2c = {};
+  };
   users.users = {
     # FIXME: Replace with your username
     airgeddon1337 = {
@@ -115,7 +120,10 @@
 		"adbusers"
 		"power"
 		"input"
+		"realtime"
+		"audio"
 		"wireshark"
+		"i2c"
 	  ];
     };
   };

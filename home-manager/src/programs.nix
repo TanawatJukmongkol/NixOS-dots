@@ -160,6 +160,13 @@
 					}
 				'';
 			}
+			{
+				plugin = lsp_signature-nvim;
+				config = toLua ''
+					local cfg = {}  -- add your config here
+					require "lsp_signature".setup(cfg)
+				'';
+			}
 		];
 		extraConfig = ''
 			" set		autoindent

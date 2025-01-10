@@ -54,11 +54,12 @@
   #    turbo = "never";
   #  };
   #};
+  sound.enable = true;
   services.pipewire = {
-    enable = true;
-    wireplumber.enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+	enable = true;
+	wireplumber.enable = true;
+	alsa.enable = true;
+	pulse.enable = true;
 	jack.enable = true;
   };
   services.udisks2.enable = true;
@@ -70,6 +71,7 @@
   ];
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
   '';
   services.openssh = {
