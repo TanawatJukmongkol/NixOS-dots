@@ -1,10 +1,11 @@
 {
   pkgs,
+  lib,
   ...
 }:
 {
   # Nicely reload system units when changing configs
-	systemd.user.startServices = "sd-switch";
+  systemd.user.startServices = "sd-switch";
   systemd.user.services.polkit-mate-authentication-agent-1 = {
     Unit = {
       Description = "Policy kit for superuser privilage authentication.";

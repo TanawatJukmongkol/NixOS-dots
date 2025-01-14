@@ -7,7 +7,7 @@
 	excludePackages = with pkgs; [
 		xterm
 	];
-    videoDrivers = [ "intel" "nvidia" ];
+    videoDrivers = [ "i915.force_probe=4c8a" "nvidia" ];
     # displayManager.lightdm = {
     #   enable = true;
     #   greeters.slick.enable = true;
@@ -54,7 +54,7 @@
   #    turbo = "never";
   #  };
   #};
-  sound.enable = true;
+  # sound.enable = true;
   services.pipewire = {
 	enable = true;
 	wireplumber.enable = true;
@@ -85,6 +85,8 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+    hostName = "42pong";
+    domainName = "com";
     publish = {
       enable = true;
       addresses = true;

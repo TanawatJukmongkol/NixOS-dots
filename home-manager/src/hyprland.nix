@@ -1,5 +1,6 @@
 {
 	pkgs,
+	lib,
 	# inputs,
 	...
 } : {
@@ -34,9 +35,9 @@
 					passes = 4;
 					new_optimizations = true;
 				};
-				drop_shadow = "yes";
-				shadow_range = 20;
-				shadow_render_power = 4;
+				# drop_shadow = "yes";
+				# shadow_range = 20;
+				# shadow_render_power = 4;
 			};
 			animations = {
 				bezier = [
@@ -228,7 +229,7 @@
 				no_fade_in = false;
 			};
 
-			background = [
+			background = lib.mkForce [
 				{
 					path = "screenshot";
 					blur_passes = 3;
@@ -238,7 +239,7 @@
 
 			image = {
 				path = "/home/airgeddon1337/.face";
-				monitor = "eDP-1";
+				# monitor = "eDP-1";
 				position = "0, 60";
 				rounding = -1;
 				border_size = 4;
@@ -247,11 +248,11 @@
 				valign = "center";
 			};
 
-			input-field = [
+			input-field = lib.mkForce [
 				{
 					size = "200, 50";
 					position = "0, -80";
-					monitor = "eDP-1";
+					# monitor = "eDP-1";
 					dots_center = true;
 					fade_on_empty = false;
 					font_color = "rgb(202, 211, 245)";

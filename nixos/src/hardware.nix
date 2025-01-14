@@ -11,10 +11,9 @@
     enable = true;
     powerOnBoot = false;
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
@@ -23,8 +22,9 @@
       # vpl-gpu-rt # Intel VPL
       libvdpau-va-gl
       vaapiVdpau
-      # mesa
-      # libGL
+      mesa
+      libGL
+      mangohud
     ];
   };
   hardware.nvidia = {

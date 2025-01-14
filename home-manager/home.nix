@@ -103,7 +103,7 @@
 		# VM
 		virt-manager
 		# Games
-		osu-lazer-bin
+		osu-lazer-bin-latest
 		# Misc.
 		obsidian
 		glava
@@ -112,7 +112,7 @@
 			fonts = [ "Hack" "FiraCode" ];
 		})
 		tlwg
-		noto-fonts-cjk
+		noto-fonts-cjk-sans
 		noto-fonts-emoji
 		# programming
 		poetry
@@ -151,5 +151,5 @@
 	};
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-	home.stateVersion = "24.05";
+	home.stateVersion = "24.11";
 }
