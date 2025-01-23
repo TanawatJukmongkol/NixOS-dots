@@ -441,19 +441,17 @@
         "hyprlang": "hyprlang_2",
         "hyprutils": "hyprutils",
         "hyprwayland-scanner": "hyprwayland-scanner",
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
+        "nixpkgs": "nixpkgs_2",
         "pre-commit-hooks": "pre-commit-hooks",
         "systems": "systems_2",
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1737667631,
-        "narHash": "sha256-ssyh/oVBqNt5yizyE3FlUSf+Cg9Pl43J9jqinyWUHpo=",
+        "lastModified": 1737669453,
+        "narHash": "sha256-lSvy4jo4ayvaUcZ1pkt5yFMDquIjQU0j4vVMPO9Zou8=",
         "ref": "refs/heads/main",
-        "rev": "1a0a22ad038bbd51c4e1514868d6dcd505af0242",
-        "revCount": 5705,
+        "rev": "465cf66df14c28427ba30580253be6e3908bd28c",
+        "revCount": 5706,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -470,7 +468,9 @@
           "hyprland"
         ],
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "hyprland-plugins",
+          "hyprland",
+          "nixpkgs"
         ],
         "systems": [
           "hyprland-plugins",
@@ -734,6 +734,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1737469691,
+        "narHash": "sha256-nmKOgAU48S41dTPIXAq0AHZSehWUn6ZPrUKijHAMmIk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9e4d5190a9482a1fb9d18adf0bdb83c6e506eaab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1737569578,
         "narHash": "sha256-6qY0pk2QmUtBT9Mywdvif0i/CLVgpCjMUn6g9vB+f3M=",
         "owner": "NixOS",
@@ -778,7 +794,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "nix-vscode-extensions": "nix-vscode-extensions",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "stylix": "stylix"
       }

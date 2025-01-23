@@ -27,12 +27,10 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     stylix = {
       url = "github:danth/stylix/release-24.11";
@@ -103,7 +101,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          hyprland.homeManagerModules.default
+          # hyprland.homeManagerModules.default
           stylix.homeManagerModules.stylix
           ./home-manager/home.nix
         ];
