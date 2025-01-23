@@ -2,7 +2,7 @@
 	pkgs,
 	...
 }: {
- # Enable home-manager and git
+  # Enable home-manager and git
 	programs.home-manager.enable = true;
 	programs.zsh = {
 		enable = true;
@@ -256,6 +256,8 @@
 			open-vsx.pkief.material-icon-theme
 			open-vsx.llvm-vs-code-extensions.vscode-clangd
 			open-vsx.medo64.render-crlf
+			open-vsx.ms-toolsai.jupyter
+			open-vsx.arrterian.nix-env-selector
 			vscode-marketplace.leonardssh.vscord
 		]);
 		userSettings = {

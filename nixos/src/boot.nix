@@ -30,9 +30,10 @@ in {
     };
   };
 
-  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia_uvm" "hp-wmi" ];
+  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia_uvm" "hp-wmi" "v4l2loopback" "snd-aloop" ];
   boot.extraModulePackages = [
     (lib.hiPrio patched)
+	config.boot.kernelPackages.v4l2loopback.out
   ];
 
   boot.extraModprobeConfig = ''

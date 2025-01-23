@@ -7,7 +7,10 @@
 	excludePackages = with pkgs; [
 		xterm
 	];
-    videoDrivers = [ "i915.force_probe=4c8a" "nvidia" ];
+    videoDrivers = [
+      "i915.force_probe=4c8a"
+      "nvidia"
+    ];
     # displayManager.lightdm = {
     #   enable = true;
     #   greeters.slick.enable = true;
@@ -56,11 +59,11 @@
   #};
   # sound.enable = true;
   services.pipewire = {
-	enable = true;
-	wireplumber.enable = true;
-	alsa.enable = true;
-	pulse.enable = true;
-	jack.enable = true;
+    enable = true;
+    wireplumber.enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
   services.udisks2.enable = true;
   services.gvfs.enable = true;

@@ -24,6 +24,10 @@
 				layout = "dwindle";
 				resize_on_border = true;
 			};
+			input = {
+				accel_profile = "flat";
+				force_no_accel = 1;
+			};
 			dwindle = {
 				preserve_split = true;
 			};
