@@ -219,9 +219,9 @@
 			### Reset ###
 			submap = reset
 		'';
-		# plugins = with pkgs.hyprland-plugins; [
-		# 	hyprwinwrap
-		# ];
+		plugins = with pkgs.hyprlandPlugins; [
+			hyprwinwrap
+		];
 	};
 	programs.hyprlock = {
 		enable = true;
