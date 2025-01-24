@@ -218,6 +218,13 @@
 				bind = ,escape,submap,reset
 			### Reset ###
 			submap = reset
+			### plugins ###
+			plugin {
+				hyprwinwrap {
+					# class is an EXACT match and NOT a regex!
+					class = GLava
+				}
+			}
 		'';
 		plugins = with pkgs.hyprlandPlugins; [
 			hyprwinwrap
