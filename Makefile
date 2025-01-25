@@ -21,6 +21,9 @@ test:
 switch:
 	sudo nixos-rebuild $(NIXOS_FLAGS) switch --flake .#$(HOST)
 
+upgrade: update
+	sudo nixos-rebuild $(NIXOS_FLAGS) switch --upgrade --flake .#$(HOST)
+
 boot:
 	sudo nixos-rebuild $(NIXOS_FLAGS) boot --install-bootloader --flake .#$(HOST)
 
