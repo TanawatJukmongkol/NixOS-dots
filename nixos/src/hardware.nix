@@ -16,15 +16,19 @@
     enable32Bit = true;
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
-      # intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965
+      intel-vaapi-driver
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      # intel-vaapi-driver # LIBVA_DRIVER_NAME=i965
       intel-media-sdk # Intel QSV
-      # vpl-gpu-rt # Intel VPL
+      vpl-gpu-rt # Intel VPL
       libvdpau-va-gl
+      vaapiIntel
       vaapiVdpau
       mesa
       libGL
+      libdrm
       mangohud
+      egl-wayland
     ];
   };
   hardware.nvidia = {
@@ -42,7 +46,7 @@
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = (config.boot.kernelPackages).nvidiaPackages.stable;
   };
   hardware.opentabletdriver = {
     enable = true;

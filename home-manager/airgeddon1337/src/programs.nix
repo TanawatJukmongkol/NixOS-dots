@@ -253,11 +253,12 @@
 			open-vsx.jnoortheen.nix-ide
 			open-vsx.ms-azuretools.vscode-docker
 			open-vsx.jeanp413.open-remote-ssh
-			open-vsx.pkief.material-icon-theme
+			# open-vsx.pkief.material-icon-theme
 			open-vsx.llvm-vs-code-extensions.vscode-clangd
 			open-vsx.medo64.render-crlf
 			open-vsx.ms-toolsai.jupyter
 			open-vsx.arrterian.nix-env-selector
+			open-vsx.dart-code.flutter
 			vscode-marketplace.leonardssh.vscord
 		]);
 		userSettings = {

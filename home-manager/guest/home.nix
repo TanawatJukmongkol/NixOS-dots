@@ -53,8 +53,8 @@
 
 	# TODO: Set your username
 	home = {
-		username = "airgeddon1337";
-		homeDirectory = "/home/airgeddon1337";
+		username = "guest";
+		homeDirectory = "/home/guest";
 	};
 
 	# Add stuff for your user as you see fit:
@@ -104,6 +104,7 @@
 		virt-manager
 		# Games
 		osu-lazer-bin-latest
+		prismlauncher-quacked
 		# Misc.
 		obsidian
 		glava

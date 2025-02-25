@@ -3,7 +3,8 @@
   ...
 } : {
   programs.auto-cpufreq = {
-    enable = true;
+	enable = false;
+	# enable = true;
     settings = {
       charger = {
         governor = "performance";
@@ -17,8 +18,7 @@
   };
   programs.hyprland = {
     enable = true;
-    package = pkgs.hyprland-flake;
-  };
+	};
   programs.nm-applet = {
     enable = true;
     indicator = true;
@@ -39,6 +39,7 @@
       proton-ge-bin
     ];
   };
+  programs.adb.enable = true;
   programs.partition-manager.enable = true;
   programs.wireshark.enable = true;
 }

@@ -24,16 +24,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
+      url = "github:hyprwm/Hyprland";
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+      # inputs.hyprland.follows = "hyprland";
     };
     stylix = {
       url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # sus
+    prismlauncher = {
+      url = "github:Diegiwg/PrismLauncher-Cracked";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -41,7 +44,7 @@
   outputs = {
     self,
     nixpkgs,
-	  auto-cpufreq,
+    auto-cpufreq,
     home-manager,
     hyprland,
     stylix,
@@ -101,9 +104,17 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          # hyprland.homeManagerModules.default
           stylix.homeManagerModules.stylix
-          ./home-manager/home.nix
+          ./home-manager/airgeddon1337/home.nix
+        ];
+      };
+      "guest@nixos" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          stylix.homeManagerModules.stylix
+          ./home-manager/guest/home.nix
         ];
       };
     };

@@ -7,11 +7,19 @@
 let
   realtek-kernel-module = pkgs.callPackage ./hda-realtek.nix { inherit (config.boot.kernelPackages) kernel; };
   patched = realtek-kernel-module.overrideAttrs (prev: {
-    patches = [ ../patch/hda-realtek.patch ];
+    patches = [
+		# ../patch/hda-realtek.patch
+	];
   });
 in {
-  boot.kernelParams = [ "acpi_backlight=native" "nvidia-drm.fbdev=1" ];
-  boot.supportedFilesystems = [ "ntfs" "btrfs" ];
+  boot.kernelParams = [
+	"acpi_backlight=native"
+	"nvidia-drm.fbdev=1"
+	"i915.force_probe=a788"
+	"i915.enable_psr=0"
+	"nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
+  boot.supportedFilesystems = [ "ntfs" "btrfs" "apfs" ];
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
@@ -30,9 +38,10 @@ in {
     };
   };
 
-  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia_uvm" "hp-wmi" "v4l2loopback" "snd-aloop" ];
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "hp-wmi" "v4l2loopback" "snd-aloop" ];
   boot.extraModulePackages = [
-    (lib.hiPrio patched)
+	(lib.hiPrio patched)
 	config.boot.kernelPackages.v4l2loopback.out
   ];
 

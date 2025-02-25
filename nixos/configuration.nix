@@ -32,6 +32,7 @@
     ./src/virtualization.nix
     ./src/stylix.nix
     ./src/stylix-nixos.nix
+    ./src/environment.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -91,7 +92,7 @@
   # Note: imported from ./src
 
   # TODO: Set your hostname
-  networking.hostName = "nixos";
+  # networking.hostName = "nixos";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.defaultUserShell=pkgs.zsh;
@@ -106,7 +107,7 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      description = "";
+      description = "admin user";
       initialPassword = "admin";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
@@ -125,6 +126,28 @@
 		"wireshark"
 		"i2c"
 	  ];
+    };
+    guest = {
+      # TODO: You can set an initial password for your user.
+      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
+      # Be sure to change it (using passwd) after rebooting!
+      description = "guest user";
+      initialPassword = "guest";
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      ];
+      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
+      extraGroups = [
+        "networkmanager"
+        "libvirtd"
+        "adbusers"
+        "power"
+        "input"
+        "realtime"
+        "audio"
+        "i2c"
+      ];
     };
   };
 

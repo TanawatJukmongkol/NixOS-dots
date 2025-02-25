@@ -26,7 +26,7 @@ let
       };
       x86_64-linux = fetchurl {
         url = "https://github.com/ppy/osu/releases/latest/download/osu.AppImage";
-        hash = "sha256-E2WWjLFEAqDqFso8eO+coZ2cuQEhUS0nBZY45jInEFA=";
+        hash = "sha256-bnffUtzs5IsWKhAGeGTt+UHMmlTWbbT79Ac4fKhXK9s=";
       };
     }
     .${stdenv.system} or (throw "osu-lazer-bin: ${stdenv.system} is unsupported.");

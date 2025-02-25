@@ -1,8 +1,7 @@
-USERNAME	=airgeddon1337
 HOST		=nixos
 
 NIX_FLAGS	= --extra-experimental-features "nix-command flakes"
-NIXOS_FLAGS	= --cores 6
+NIXOS_FLAGS	= -j 4 --cores 6
 HOME_FLAGS	=
 
 all: flake.lock switch home
@@ -28,6 +27,6 @@ boot:
 	sudo nixos-rebuild $(NIXOS_FLAGS) boot --install-bootloader --flake .#$(HOST)
 
 home:
-	home-manager $(HOME_FLAGS) --flake .#$(USERNAME)@$(HOST) switch
+	home-manager $(HOME_FLAGS) --flake .#$(USER)@$(HOST) switch -b backup
 
 PHONY: all lock update test switch boot home

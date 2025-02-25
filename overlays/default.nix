@@ -22,9 +22,10 @@
     #  withOpenASAR = true;
     #  withVencord = true;
     # };
-    hyprland-flake = inputs.hyprland.packages.${final.system}.hyprland;
+    hyprland-flake = inputs.hyprland.packages.${final.system};
     hyprland-plugins = inputs.hyprland-plugins.packages.${final.system};
     nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${final.system};
+    prismlauncher-quacked = inputs.prismlauncher.packages.${final.system}.prismlauncher;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

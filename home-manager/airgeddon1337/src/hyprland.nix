@@ -7,12 +7,18 @@
 	xdg.portal.extraPortals = with pkgs; [
 		xdg-desktop-portal
 		xdg-desktop-portal-gtk
+		pkgs.hyprland-flake.hyprland.xdg-desktop-portal-hyprland
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
+		package = pkgs.hyprland-flake.hyprland;
 		settings = {
 			"$mod" = "SUPER";
 			# debug = { disable_logs = false; };
+			source = [
+				"~/.config/hypr/monitors.conf"
+				"~/.config/hypr/workspaces.conf"
+			];
 			xwayland = {
 				force_zero_scaling = true;
 				use_nearest_neighbor = true;
@@ -27,6 +33,9 @@
 			input = {
 				accel_profile = "flat";
 				force_no_accel = 1;
+			};
+			cursor = {
+				no_hardware_cursors = true;
 			};
 			dwindle = {
 				preserve_split = true;
@@ -72,7 +81,7 @@
 				"SDL_VIDEODRIVER,wayland"
 				"CLUTTER_BACKEND,wayland"
 				"XDG_SESSION_TYPE,wayland"
-				# "NIXOS_OZONE_WL,1"
+				"NIXOS_OZONE_WL,1"
 
 				"MOZ_ENABLE_WAYLAND,1"
 				"MOZ_DBUS_REMOTE,1"
@@ -81,7 +90,7 @@
 				"QT_IM_MODULE,fcitx"
 
 				#"WLR_NO_HARDWARE_CURSORS,1"
-				"WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+				#"AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
 			];
 			monitor = [
 				", highres, auto, auto"
@@ -226,8 +235,7 @@
 				}
 			}
 		'';
-		plugins = with pkgs.hyprlandPlugins; [
-			hyprwinwrap
+		plugins = with pkgs.hyprland-plugins; [
 		];
 	};
 	programs.hyprlock = {

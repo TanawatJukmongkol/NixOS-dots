@@ -4,8 +4,7 @@
 	...
 } : {
 	environment.systemPackages = with pkgs; [
-		# home manager + cachix
-		home-manager
+		# cachix
 		cachix
 		# System utils
 		tree
@@ -22,14 +21,16 @@
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
+		kdePackages.dolphin
 		kdePackages.kio
 		kdePackages.kdf
 		kdePackages.kio-fuse
 		kdePackages.kio-extras
 		kdePackages.kio-admin
 		kdePackages.qtwayland
+		kdePackages.qtsvg
 		kdePackages.kservice
-		kdePackages.plasma-integration
+		bluetuith
 		# Manuals
 		man-pages
 		man-pages-posix
