@@ -11,6 +11,10 @@
     enable = true;
     powerOnBoot = false;
   };
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+  };
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -34,6 +38,7 @@
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
+    nvidiaPersistenced = true;
     powerManagement = {
       enable = true;
       finegrained = true;

@@ -5,12 +5,12 @@
 
 appimageTools.wrapType2 rec {
   pname = "miru";
-  version = "5.5.6";
+  version = "5.5.10";
 
   src = fetchurl {
     url = "https://github.com/ThaUnknown/miru/releases/download/v${version}/linux-Miru-${version}.AppImage";
     name = "${pname}-${version}.AppImage";
-    sha256 = "sha256-yfavGhH/QROChWB0MxYt8+dssYo0+/1bV+h2Ce951RE=";
+    sha256 = "sha256-nLPqEI6u5NNQ/kPbXRWPG0pIwutKNK2J8JeTPN6wHlg=";
   };
 
   extraInstallCommands =

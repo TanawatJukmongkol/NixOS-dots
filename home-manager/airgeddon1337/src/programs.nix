@@ -19,18 +19,20 @@
 	programs.kitty = {
 		enable = true;
 		extraConfig = ''
-			font_family				FiraCode Nerd Font Mono Reg
-			tab_bar_style			powerline
-			tab_separator			angle
-			tab_activity_symbol		"◉ "
-			bell_on_tab				" 󰂚"
-			tab_title_template		"{index} {title[title.rfind('/')+1:]}{bell_symbol}"
-			enable_audio_bell		false
-			background				#060908
-			map ctrl+shift+0		change_font_size all 0
-			map kitty_mod+t			new_tab_with_cwd
-			map kitty_mod+n			new_os_window_with_cwd
-			map kitty_mod+enter		new_window_with_cwd
+			font_family					FiraCode Nerd Font Mono Reg
+			tab_bar_style				powerline
+			tab_separator				angle
+			tab_activity_symbol			"◉ "
+			bell_on_tab					" 󰂚"
+			tab_title_template			"{index} {title[title.rfind('/')+1:]}{bell_symbol}"
+			enable_audio_bell			false
+			background					#060908
+			background_opacity			0.65
+			dynamic_background_opacity	yes
+			map ctrl+shift+0			change_font_size all 0
+			map kitty_mod+t				new_tab_with_cwd
+			map kitty_mod+n				new_os_window_with_cwd
+			map kitty_mod+enter			new_window_with_cwd
 		'';
 		package = pkgs.unstable.kitty;
 	};
@@ -76,7 +78,7 @@
 				plugin = vim-airline-themes;
 				config = ''
 					let g:airline_powerline_fonts = 1
-					let g:airline_theme = 'owo'
+					let g:airline_theme = 'base16'
 				'';
 			}
 			{
@@ -248,17 +250,18 @@
 	};
 	programs.vscode = {
 		enable = true;
+		mutableExtensionsDir = true;
 		package = pkgs.unstable.vscodium;
 		extensions = (with pkgs.nix-vscode-extensions; [
-			open-vsx.jnoortheen.nix-ide
 			open-vsx.ms-azuretools.vscode-docker
 			open-vsx.jeanp413.open-remote-ssh
-			# open-vsx.pkief.material-icon-theme
 			open-vsx.llvm-vs-code-extensions.vscode-clangd
 			open-vsx.medo64.render-crlf
+			open-vsx.ms-python.python
 			open-vsx.ms-toolsai.jupyter
-			open-vsx.arrterian.nix-env-selector
+			open-vsx.mkhl.direnv
 			open-vsx.dart-code.flutter
+			open-vsx.tomoki1207.pdf
 			vscode-marketplace.leonardssh.vscord
 		]);
 		userSettings = {
@@ -266,6 +269,8 @@
 			"terminal.integrated.enablePersistentSessions" = false;
 			"nix.enableLanguageServer" = true;
 			"nix.serverPath" = "/run/current-system/sw/bin/nixd";
+			"notebook.lineNumbers" = "on";
+			"extensions.autoUpdate" = false;
 		};
 	};
 }

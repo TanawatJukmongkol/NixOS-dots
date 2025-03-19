@@ -82,6 +82,7 @@
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"
   '';
   services.openssh = {
     enable = true;
@@ -91,20 +92,11 @@
       # PasswordAuthentication = false;
     };
   };
-  services.dnsmasq = lib.optionalAttrs config.services.hostapd.enable {
-    enable = true;
-	settings = {
-      interface="wlan-ap0";
-      bind-interfaces=true;
-      dhcp-range = [ "192.168.12.10,192.168.12.254,24h" ];
-	};
-  };
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     nssmdns6 = true;
     wideArea = false;
-    domainName = "${config.networking.domain}";
     publish = {
       enable = true;
       addresses = true;
@@ -112,38 +104,29 @@
       domain = true;
     };
   };
-  services.resolved = {
-    enable = true;
-    extraConfig = ''
-      MulticastDNS=true
-    '';
-    domains = [
-      "local"
-      "com"
-    ];
-  };
   services.blueman.enable = true;
   services.dbus = {
     enable = true;
     packages = [ pkgs.libsForQt5.kpmcore ];
-  };
-  services.hostapd = {
-    enable = false;
-	radios = {
-		wlan-ap0 = {
-			networks.wlan-ap0 = {
-				ssid = "Airgeddon1337_AP";
-				authentication = {
-					saePasswords = [{ password = "airgeddon1337"; }];
-				};
-			};
-		};
-	};
   };
   services.samba = {
     enable = true;
     securityType = "user";
     openFirewall = true;
   };
-  services.haveged.enable = config.services.hostapd.enable;
+  services.hardware.openrgb.enable = true;
+  services.ratbagd.enable = true;
+  systemd.services.disable-usb-wakeup = {
+    description = "Disable USB wakeups (XHCI)";
+    after = [ "sysinit.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/bin/sh -c 'echo XHCI > /proc/acpi/wakeup'";
+      RemainAfterExit = true;
+    };
+  };
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=1800
+  '';
 }

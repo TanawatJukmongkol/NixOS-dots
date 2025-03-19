@@ -17,7 +17,8 @@ in {
 	"nvidia-drm.fbdev=1"
 	"i915.force_probe=a788"
 	"i915.enable_psr=0"
-	"nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+	"mem_sleep_default=freeze"
+	# "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
   ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" "apfs" ];
   boot.loader = {
@@ -28,7 +29,9 @@ in {
       device = "nodev";
       useOSProber = true;
       configurationLimit = 10;
-      extraFiles = {
+	  gfxmodeEfi = "2048x1152";
+	  # gfxmodeEfi = "2560x1600";
+	  extraFiles = {
         "dsdt.aml" = "${../patch/hpomen_acpi_patch.aml}";
         # "dsdt.cpio" = "${./hpomen_acpi_patch.cpio}";
       };

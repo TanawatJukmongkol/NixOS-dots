@@ -4,15 +4,19 @@
 } : {
   stylix = {
     enable = true;
-    image = "${assets/background/MoriCalliope.jpg}";
-    # image = "${assets/background/halloween.png}";
-    # image = "${assets/background/snow-miku.jpg}";
-	# image = "${assets/background/Alya.png}";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+	#image = "${assets/background/MoriCalliope.jpg}";
+	#image = "${assets/background/halloween.png}";
+	#image = "${assets/background/snow-miku.jpg}";
+	#image = "${assets/background/Alya.png}";
+	#image = "${assets/background/anime-girl-with-terminal.jpg}";
+	#image = "${assets/background/cyberpunk.jpg}";
+	image = "${assets/background/hutao1.jpg}";
+	#base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+	#base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
 	#base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-  	cursor = {
+	base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+	#base16Scheme = "${pkgs.base16-schemes}/share/themes/twilight.yaml";
+	cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };
@@ -28,4 +32,9 @@
       };
     };
   };
+
+  qt = {
+    enable = true;
+  };
+
 }

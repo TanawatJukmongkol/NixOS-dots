@@ -119,38 +119,6 @@
 		poetry
 	];
 
-	gtk = {
-		enable = true;
-		iconTheme = {
-			name = "Flat-Remix-Cyan-Dark";
-			package = pkgs.flat-remix-icon-theme;
-		};
-	};
-
-	qt = {
-		enable = true;
-		platformTheme.name = "qtct";
-		style.name = "kvantum";
-	};
-
-	xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-		General.theme = "Default";
-	};
-
-	xdg.configFile."Kvantum/Default".source = (pkgs.formats.ini {}).generate "Default.kvconfig" {
-		"@General" = {
-			translucent_windows = true;
-		};
-		Hacks = {
-			transparent_dolphin_view = true;
-			transparent_ktitle_label = true;
-		};
-	};
-
-	xdg.configFile."qt5ct/qt5ct.conf".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-		Appearance.icon_theme = "Flat-Remix-Cyan-Dark";
-	};
-
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 	home.stateVersion = "24.11";
 }

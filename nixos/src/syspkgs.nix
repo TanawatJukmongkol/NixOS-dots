@@ -21,6 +21,7 @@
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
+		libsForQt5.plasma-workspace
 		kdePackages.dolphin
 		kdePackages.kio
 		kdePackages.kdf

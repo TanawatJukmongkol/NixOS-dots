@@ -4,14 +4,14 @@
 	# inputs,
 	...
 } : {
-	xdg.portal.extraPortals = with pkgs; [
-		xdg-desktop-portal
-		xdg-desktop-portal-gtk
-		pkgs.hyprland-flake.hyprland.xdg-desktop-portal-hyprland
-	];
+	# xdg.portal.extraPortals = with pkgs; [
+	# 	xdg-desktop-portal
+	# 	xdg-desktop-portal-gtk
+	# 	pkgs.hyprland-flake.hyprland.xdg-desktop-portal-hyprland
+	# ];
 	wayland.windowManager.hyprland = {
 		enable = true;
-		package = pkgs.hyprland-flake.hyprland;
+		# package = pkgs.hyprland-flake.hyprland;
 		settings = {
 			"$mod" = "SUPER";
 			# debug = { disable_logs = false; };
@@ -92,10 +92,10 @@
 				#"WLR_NO_HARDWARE_CURSORS,1"
 				#"AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
 			];
-			monitor = [
-				", highres, auto, auto"
-				"eDP-1 , highres:120, auto, 1.25"
-			];
+			#monitor = [
+			#	", highres, auto, auto"
+			#	"eDP-1 , highres:120, auto, 1.25"
+			#];
 			bind = [
 				# Terminal
 				"CTRL ALT, T, exec, kitty"
@@ -235,7 +235,9 @@
 				}
 			}
 		'';
-		plugins = with pkgs.hyprland-plugins; [
+		# plugins = with pkgs.hyprland-plugins; [
+		plugins = with pkgs.hyprlandPlugins; [
+			hyprwinwrap
 		];
 	};
 	programs.hyprlock = {
@@ -298,6 +300,10 @@
 				{
 					timeout = "80";
 					on-timeout = "loginctl lock-session";
+				}
+				{
+					timeout = "120";
+					on-timeout = "systemctl suspend-then-hibernate";
 				}
 			];
 		};

@@ -101,6 +101,9 @@
     audio = {};
     i2c = {};
   };
+  users.extraGroups.docker.members = [
+    "airgeddon1337"
+  ];
   users.users = {
     # FIXME: Replace with your username
     airgeddon1337 = {
@@ -147,6 +150,7 @@
         "realtime"
         "audio"
         "i2c"
+        "docker"
       ];
     };
   };
