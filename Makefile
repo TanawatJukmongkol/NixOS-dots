@@ -23,10 +23,13 @@ switch:
 upgrade: update
 	sudo nixos-rebuild $(NIXOS_FLAGS) switch --upgrade --flake .#$(HOST)
 
+rescue:
+	nixos-rebuild --option sandbox false $(NIXOS_FLAGS) boot --install-bootloader --flake .#$(HOST)
+
 boot:
 	sudo nixos-rebuild $(NIXOS_FLAGS) boot --install-bootloader --flake .#$(HOST)
 
 home:
 	home-manager $(HOME_FLAGS) --flake .#$(USER)@$(HOST) switch -b backup
 
-PHONY: all lock update test switch boot home
+PHONY: all lock update test switch rescue boot home

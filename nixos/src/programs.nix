@@ -18,6 +18,7 @@
   };
   programs.hyprland = {
     enable = true;
+    # withUWSM = true;
 	};
   programs.nm-applet = {
     enable = true;

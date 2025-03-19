@@ -253,16 +253,16 @@
 		mutableExtensionsDir = true;
 		package = pkgs.unstable.vscodium;
 		extensions = (with pkgs.nix-vscode-extensions; [
-			open-vsx.ms-azuretools.vscode-docker
-			open-vsx.jeanp413.open-remote-ssh
+			vscode-marketplace.leonardssh.vscord
+			# vscode-marketplace.ms-toolsai.jupyter
 			open-vsx.llvm-vs-code-extensions.vscode-clangd
 			open-vsx.medo64.render-crlf
-			open-vsx.ms-python.python
-			open-vsx.ms-toolsai.jupyter
-			open-vsx.mkhl.direnv
-			open-vsx.dart-code.flutter
+			open-vsx.jeanp413.open-remote-ssh
+			open-vsx.pinage404.nix-extension-pack
 			open-vsx.tomoki1207.pdf
-			vscode-marketplace.leonardssh.vscord
+			open-vsx.ms-azuretools.vscode-docker
+			open-vsx.ms-toolsai.jupyter-renderers
+			open-vsx.ms-python.python
 		]);
 		userSettings = {
 			"editor.renderWhitespace" = "all";

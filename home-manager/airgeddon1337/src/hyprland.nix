@@ -10,6 +10,7 @@
 	# 	pkgs.hyprland-flake.hyprland.xdg-desktop-portal-hyprland
 	# ];
 	wayland.windowManager.hyprland = {
+		# systemd.enable = false;
 		enable = true;
 		# package = pkgs.hyprland-flake.hyprland;
 		settings = {
@@ -71,11 +72,11 @@
 			misc = {
 				disable_hyprland_logo = true;
 			};
-			exec-once = [
+			exec-once = [ #lib.forEach [
 				"waybar"
 				"wl-paste --watch cliphist store"
 				"fcitx5"
-			];
+			]; # (exec-once: "uwsm app -- ${exec-once}") ;
 			env = [
 				"GDK_BACKEND,wayland,x11,remmina"
 				"SDL_VIDEODRIVER,wayland"
