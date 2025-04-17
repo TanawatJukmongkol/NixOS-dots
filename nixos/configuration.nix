@@ -101,6 +101,12 @@
     audio = {};
     i2c = {};
   };
+  users.groups.libvirtd.members = [
+    "airgeddon1337"
+  ];
+  users.extraGroups.vboxusers.members = [
+    "airgeddon1337"
+  ];
   users.extraGroups.docker.members = [
     "airgeddon1337"
   ];

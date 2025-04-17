@@ -15,5 +15,9 @@
         { from = 1000; to = 65535; }
       ];
     };
+	extraHosts = ''
+		127.0.0.3	tsirirak.42.fr
+		::1			tsirirak.42.fr
+	'';
   };
 }

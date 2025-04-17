@@ -98,10 +98,16 @@
 		# Internet / Social media
 		firefox
 		chromium
-		vesktop # discord, but doesn't suck
+
+		(discord.override {
+			withVencord = true;
+		})
+		#vesktop-old
+
 		irssi-v123
 		wireshark-qt
 		teams-for-linux
+		slack
 		# VM
 		virt-manager
 		# Games
