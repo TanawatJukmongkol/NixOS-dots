@@ -105,6 +105,7 @@
     };
   };
   services.blueman.enable = true;
+  services.geoclue2.enable = true;
   services.dbus = {
     enable = true;
     packages = [ pkgs.libsForQt5.kpmcore ];
@@ -116,6 +117,7 @@
   };
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
   systemd.services.disable-usb-wakeup = {
     description = "Disable USB wakeups (XHCI)";
     after = [ "sysinit.target" ];

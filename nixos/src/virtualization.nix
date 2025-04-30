@@ -18,13 +18,13 @@
 	# 	enableExtensionPack = true;
 	# };
  #  };
-  # virtualisation.docker.rootless = {
-  #   enable = true;
-  #   setSocketVariable = true;
-  # };
-  virtualisation.docker = {
+  virtualisation.docker.rootless = {
     enable = true;
-    # storageDriver = "btrfs";
+    setSocketVariable = true;
   };
+  # virtualisation.docker = {
+  #   enable = true;
+  #   # storageDriver = "btrfs";
+  # };
   virtualisation.waydroid.enable = true;
 }

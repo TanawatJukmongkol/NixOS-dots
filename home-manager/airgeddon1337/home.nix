@@ -95,6 +95,8 @@
 		miru
 		yt-dlp
 		subtitleeditor
+		krita
+		gimp
 		# Internet / Social media
 		firefox
 		chromium
