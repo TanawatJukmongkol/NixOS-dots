@@ -40,8 +40,8 @@
     modesetting.enable = true;
     nvidiaPersistenced = true;
     powerManagement = {
-      enable = true;
-      finegrained = true;
+      # enable = true;
+      # finegrained = true;
     };
     prime = {
       offload = {
@@ -51,7 +51,7 @@
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-    package = (config.boot.kernelPackages).nvidiaPackages.stable;
+    package = (config.boot.kernelPackages).nvidiaPackages.production;
   };
   hardware.opentabletdriver = {
     enable = true;

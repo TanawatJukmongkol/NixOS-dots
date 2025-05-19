@@ -104,11 +104,10 @@
 		(discord.override {
 			withVencord = true;
 		})
-		#vesktop-old
 
 		irssi-v123
 		wireshark-qt
-		teams-for-linux
+		# teams-for-linux
 		slack
 		# VM
 		virt-manager

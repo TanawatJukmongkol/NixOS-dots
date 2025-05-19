@@ -13,34 +13,27 @@
       "modesetting"
       "nvidia"
     ];
-    # displayManager.lightdm = {
-    #   enable = true;
-    #   greeters.slick.enable = true;
-    # };
-    # displayManager.gdm = {
-    #   enable = true;
-    #   wayland = true;
-    # };
     xkb = {
       variant = "";
       layout = "us";
     };
+    displayManager.defaultSession = "hyprland";
   };
   services.displayManager = {
-	sddm = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+      # theme = "sddm_theme_qt5";
+    };
+    autoLogin = {
+      enable = true;
+      user = "airgeddon1337";
+    };
+  };
+  services.desktopManager.plasma6 = {
     enable = true;
-    theme = "sddm_theme_qt5";
-    wayland.enable = true;
+    enableQt5Integration = true;
   };
-	autoLogin = {
-		enable = true;
-		user = "airgeddon1337";
-	};
-  };
-  # services.desktopManager.plasma6 = {
-  #   enable = true;
-  #   enableQt5Integration = true;
-  # };
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
     HandleLidSwitch=suspend-then-hibernate
@@ -115,6 +108,7 @@
     securityType = "user";
     openFirewall = true;
   };
+  services.printing.enable = true;
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;

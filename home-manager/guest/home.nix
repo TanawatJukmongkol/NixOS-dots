@@ -99,7 +99,7 @@
 		vesktop # discord, but doesn't suck
 		irssi-v123
 		wireshark-qt
-		teams-for-linux
+		# teams-for-linux
 		# VM
 		virt-manager
 		# Games
