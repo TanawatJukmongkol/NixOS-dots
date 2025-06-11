@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
 		rev = pkg_version;
 		sha256 = "sha256-uTZ+x5NjiDT5s4+fgfjTXf04WH9RiKvcGwSAYEG5YXo=";
 	};
-	cargoHash = "sha256-vPQS4lLJhKJTbQ7kGJp8BDlEgytqLjX4GxuhHByzeis=";
+	cargoHash = "sha256-0jprYwd7KMTg3i71PcOZjqXV4WLcU4+c4mx4FnN/mNU=";
 	buildInputs = with pkgs; [
 		dbus
 		webkitgtk

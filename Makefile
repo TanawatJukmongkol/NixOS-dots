@@ -1,8 +1,8 @@
 HOST		=nixos
 
 NIX_FLAGS	= --extra-experimental-features "nix-command flakes"
-NIXOS_FLAGS	= -j 4 --cores 6 --show-trace
-HOME_FLAGS	= -j 4 --cores 6 --show-trace
+NIXOS_FLAGS	= -j 4 --cores 6
+HOME_FLAGS	= -j 4 --cores 6
 
 all: flake.lock switch home
 

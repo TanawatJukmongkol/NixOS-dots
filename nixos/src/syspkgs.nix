@@ -15,12 +15,13 @@
 		direnv
 		bluez
 		bluez-tools
-		partition-manager
 		isoimagewriter
 		waypipe
+		pkg-config
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
+		kdePackages.partitionmanager
 		kdePackages.plasma-workspace
 		kdePackages.plasma-workspace-wallpapers
 		kdePackages.dolphin

@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -16,7 +16,7 @@
     };
     # Home manager
 	  home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 	nix-vscode-extensions = {
@@ -31,9 +31,14 @@
       # inputs.hyprland.follows = "hyprland";
     };
     stylix = {
-      url = "github:danth/stylix/release-24.11";
+      url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mikuboot = {
+      url = "gitlab:evysgarden/mikuboot";
+      inputs.nixpkgs.follows = "nixpkgs"; # only useful for the package output
+    };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # sus
     prismlauncher = {
       url = "github:Diegiwg/PrismLauncher-Cracked";
@@ -48,6 +53,8 @@
     home-manager,
     hyprland,
     stylix,
+	mikuboot,
+	zen-browser,
 	  ...
   } @ inputs: let
     inherit (self) outputs;
@@ -90,6 +97,7 @@
           hyprland.nixosModules.default
           auto-cpufreq.nixosModules.default
           stylix.nixosModules.stylix
+          mikuboot.nixosModules.default
           ./nixos/configuration.nix
         ];
       };
@@ -104,7 +112,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          stylix.homeManagerModules.stylix
+          stylix.homeModules.stylix
           ./home-manager/airgeddon1337/home.nix
         ];
       };
@@ -113,7 +121,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          stylix.homeManagerModules.stylix
+          stylix.homeModules.stylix
           ./home-manager/guest/home.nix
         ];
       };

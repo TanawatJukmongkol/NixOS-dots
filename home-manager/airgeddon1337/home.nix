@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-	# inputs,
+	inputs,
 	outputs,
 	# lib,
 	# config,
@@ -59,7 +59,14 @@
 
 	# Add stuff for your user as you see fit:
 
-	fonts.fontconfig.enable = true;
+	fonts ={
+		fontconfig = {
+			enable = true;
+			# defaultFonts = {
+			# 	emoji = [ "Noto Fonts Color-Emoji" ];
+			# };
+		};
+	};
 
 	home.packages = with pkgs; [
 		# Util
@@ -84,7 +91,7 @@
 		cliphist
 		# File management
 		# dolphin
-		ark
+		kdePackages.ark
 		yazi
 		# Editors
 		#vscode-fhs
@@ -100,10 +107,12 @@
 		# Internet / Social media
 		firefox
 		chromium
+		(inputs.zen-browser.packages."x86_64-linux".default)
 
-		(discord.override {
-			withVencord = true;
-		})
+		vesktop
+		# (discord.override {
+		# 	withVencord = true;
+		# })
 
 		irssi-v123
 		wireshark-qt
@@ -115,6 +124,7 @@
 		osu-lazer-bin-latest
 		prismlauncher-quacked
 		gamescope
+		godot_4
 		(lutris.override {
 			extraLibraries =  pkgs: [
 				# List library dependencies
@@ -127,12 +137,11 @@
 		obsidian
 		glava
 		# Fonts
-		(nerdfonts.override {
-			fonts = [ "Hack" "FiraCode" ];
-		})
 		tlwg
 		noto-fonts-cjk-sans
 		noto-fonts-emoji
+		nerd-fonts.hack
+		nerd-fonts.fira-code
 		# programming
 		poetry
 		nix-direnv
@@ -141,5 +150,5 @@
 	];
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-	home.stateVersion = "24.11";
+	home.stateVersion = "25.05";
 }

@@ -169,6 +169,9 @@
 					require "lsp_signature".setup(cfg)
 				'';
 			}
+			{
+				plugin = vim-clang-format;
+			}
 		];
 		extraConfig = ''
 			" set		autoindent

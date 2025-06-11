@@ -163,5 +163,5 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   documentation.dev.enable = true;
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }

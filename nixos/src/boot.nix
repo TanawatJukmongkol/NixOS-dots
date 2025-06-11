@@ -6,11 +6,13 @@
 } :
 {
   boot.kernelParams = [
-	"acpi_backlight=native"
 	"nvidia-drm.fbdev=1"
+	"acpi_backlight=native"
+	"nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1"
 	"i915.force_probe=a788"
 	"i915.enable_psr=0"
-	"mem_sleep_default=freeze"
+	"i915.enable_dpcd_backlight=1"
+	"mem_sleep_default=s2idle"
   ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" "apfs" ];
   boot.loader = {
@@ -21,20 +23,40 @@
       device = "nodev";
       useOSProber = true;
       configurationLimit = 10;
-	  gfxmodeEfi = "2048x1152";
-	  # gfxmodeEfi = "2560x1600";
+	  gfxmodeBios = "2560x1440";
+	  gfxmodeEfi = "2560x1440";
 	  extraFiles = {
         "dsdt.aml" = "${../patch/hpomen_acpi_patch.aml}";
         # "dsdt.cpio" = "${./hpomen_acpi_patch.cpio}";
       };
-      extraConfig = ''
-        acpi /dsdt.aml
-      '';
+      extraConfig = ''''\n
+acpi /dsdt.aml
+GRUB_DEFAULT=saved
+GRUB_SAVEDEFAULT=true
+GRUB_GFXPAYLOAD_LINUX=keep
+'';
     };
   };
+  boot.plymouth = {
+    enable = true;
+    # add theme package and name
+    themePackages = [ pkgs.mikuboot ];
+    theme = "mikuboot";
+  };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
-  boot.kernelModules = [ "uinput" "i2c-dev" "i2c-piix4" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "hp-wmi" "v4l2loopback" "snd-aloop" ];
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  boot.kernelModules = [
+		"uinput"
+		"i2c-dev"
+		"i2c-piix4"
+		"nvidia"
+		"nvidia_modeset"
+		"nvidia_uvm"
+		"nvidia_drm"
+		"hp-wmi"
+		"v4l2loopback"
+		"snd-aloop"
+  ];
   boot.extraModulePackages = [
 	config.boot.kernelPackages.v4l2loopback.out
   ];

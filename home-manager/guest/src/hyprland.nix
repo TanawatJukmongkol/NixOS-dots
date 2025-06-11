@@ -4,10 +4,6 @@
 	# inputs,
 	...
 } : {
-	xdg.portal.extraPortals = with pkgs; [
-		xdg-desktop-portal
-		xdg-desktop-portal-gtk
-	];
 	wayland.windowManager.hyprland = {
 		enable = true;
 		settings = {
@@ -81,7 +77,7 @@
 				"QT_IM_MODULE,fcitx"
 
 				#"WLR_NO_HARDWARE_CURSORS,1"
-				"WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+				# "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 			];
 			monitor = [
 				", highres, auto, auto"
@@ -296,6 +292,7 @@
 	};
   services.mako = {
     enable = true;
+    settings = {
     backgroundColor = "#282a36af";
     textColor = "#f4f7fa";
     borderColor = "#282a36";
@@ -305,16 +302,19 @@
     width = 375;
     height = 175;
     layer = "overlay";
-    extraConfig = ''
-[urgency=low]
-border-color=#879a9c
-default-timeout=7000
+"[urgency=low]" = {
+border-color="#879a9c";
+default-timeout=7000;
+};
 
-[urgency=normal]
-border-color=#b0cfd1
-default-timeout=10000
+"[urgency=normal]"={
+border-color="#b0cfd1";
+default-timeout=10000;
+				};
 
-[urgency=high]
-border-color=#d1a8f0'';
+"[urgency=high]"={
+border-color="#d1a8f0";
+					};
   };
+	};
 }

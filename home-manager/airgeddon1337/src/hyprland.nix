@@ -4,11 +4,6 @@
 	# inputs,
 	...
 } : {
-	# xdg.portal.extraPortals = with pkgs; [
-	# 	xdg-desktop-portal
-	# 	xdg-desktop-portal-gtk
-	# 	pkgs.hyprland-flake.hyprland.xdg-desktop-portal-hyprland
-	# ];
 	wayland.windowManager.hyprland = {
 		# systemd.enable = false;
 		enable = true;
@@ -36,7 +31,7 @@
 				force_no_accel = 1;
 			};
 			cursor = {
-				no_hardware_cursors = true;
+				# no_hardware_cursors = true;
 			};
 			dwindle = {
 				preserve_split = true;
@@ -91,7 +86,7 @@
 				"QT_IM_MODULE,fcitx"
 
 				#"WLR_NO_HARDWARE_CURSORS,1"
-				#"AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
+				#"AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 			];
 			#monitor = [
 			#	", highres, auto, auto"
@@ -190,9 +185,9 @@
 				workspace_swipe_cancel_ratio = "0.35";
 				workspace_swipe_use_r = "true";
 			};
-      windowrule = [
-        "animation slide, notifications"
-      ];
+      # windowrule = [
+      #   "animation slide, notifications"
+      # ];
       windowrulev2 = [
         "stayfocused, class:hyprland-share-picker"
         "dimaround, class:hyprland-share-picker"
@@ -311,25 +306,28 @@
 	};
   services.mako = {
     enable = true;
-    backgroundColor = "#282a36af";
-    textColor = "#f4f7fa";
-    borderColor = "#282a36";
-    progressColor = "#00ffff3a";
-    borderRadius = 5;
-    margin = "5, 20";
-    width = 375;
-    height = 175;
-    layer = "overlay";
-    extraConfig = ''
-[urgency=low]
-border-color=#879a9c
-default-timeout=7000
-
-[urgency=normal]
-border-color=#b0cfd1
-default-timeout=10000
-
-[urgency=high]
-border-color=#d1a8f0'';
+    settings = {
+	    backgroundColor = "#282a36af";
+		textColor = "#f4f7fa";
+    	borderColor = "#282a36";
+    	progressColor = "#00ffff3a";
+    	borderRadius = 5;
+    	margin = "5, 20";
+    	width = 375;
+    	height = 175;
+    	layer = "overlay";
+		"urgency=low" = {
+			border-color = "#879a9c";
+			default-timeout = 7000;
+		};
+		"urgency=normal" = {
+			border-color = "#b0cfd1";
+			default-timeout = 10000;
+		};
+		"urgency=high" = {
+			border-color = "#d1a8f0";
+		};
+	};
   };
+
 }
