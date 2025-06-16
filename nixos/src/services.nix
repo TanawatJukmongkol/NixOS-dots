@@ -123,6 +123,6 @@
     };
   };
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=1800
+    DefaultTimeoutStopSec=5s
   '';
 }

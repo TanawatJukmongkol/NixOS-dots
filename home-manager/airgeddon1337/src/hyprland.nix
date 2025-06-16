@@ -29,6 +29,9 @@
 			input = {
 				accel_profile = "flat";
 				force_no_accel = 1;
+				touchpad = {
+					disable_while_typing = false;
+				};
 			};
 			cursor = {
 				# no_hardware_cursors = true;
@@ -114,6 +117,7 @@
 				"$mod SHIFT, M, fullscreen, 0"
 				"$mod, F, togglefloating"
 				"$mod, G, togglegroup"
+				"CTRL ALT, B, exec, pkill -USR1 waybar"
 				"CTRL ALT, G, lockgroups, toggle"
 				"CTRL ALT, right, changegroupactive, f"
 				"CTRL ALT, left, changegroupactive, b"

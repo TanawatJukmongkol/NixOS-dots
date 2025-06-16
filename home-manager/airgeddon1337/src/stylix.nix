@@ -8,10 +8,13 @@
     # image = "${assets/background/halloween.png}";
     # image = "${assets/background/snow-miku.jpg}";
     # image = "${assets/background/Alya.png}";
-    image = "${assets/background/anime-girl-with-terminal.jpg}";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    # image = "${assets/background/anime-girl-with-terminal.jpg}";
+	# image = "${assets/background/snow.jpg}";
+	image = "${assets/background/fern.jpg}";
+	# image = "${assets/background/pink-leaf.jpg}";
+	# base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/mountain.yaml";
     iconTheme = {

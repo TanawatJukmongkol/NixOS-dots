@@ -4,7 +4,7 @@
 	inputs,
 	outputs,
 	# lib,
-	# config,
+	config,
 	pkgs,
 	...
 }: {
@@ -103,7 +103,7 @@
 		yt-dlp
 		subtitleeditor
 		krita
-		gimp
+		gimp3
 		# Internet / Social media
 		firefox
 		chromium
@@ -148,6 +148,10 @@
 		# dart
 		flutter
 	];
+
+	home.file = {
+		".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ../../assets/config/waybar;
+	};
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 	home.stateVersion = "25.05";

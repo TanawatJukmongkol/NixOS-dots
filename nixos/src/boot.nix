@@ -7,12 +7,14 @@
 {
   boot.kernelParams = [
 	"nvidia-drm.fbdev=1"
+	"nvidia.NVreg_EnableS0ixPowerManagement=1"
+	"nvidia.NVreg_DynamicPowerManagement=0x02"
 	"acpi_backlight=native"
-	"nvidia.NVreg_RegistryDwords=EnableBrightnessControl=1"
+	"video.use_native_backlight=1"
 	"i915.force_probe=a788"
 	"i915.enable_psr=0"
-	"i915.enable_dpcd_backlight=1"
 	"mem_sleep_default=s2idle"
+	# "mem_sleep_default=deep"
   ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" "apfs" ];
   boot.loader = {
@@ -44,7 +46,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
     theme = "mikuboot";
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  boot.kernelPackages = pkgs.unstable.linuxPackages;
   boot.kernelModules = [
 		"uinput"
 		"i2c-dev"
@@ -56,6 +58,10 @@ GRUB_GFXPAYLOAD_LINUX=keep
 		"hp-wmi"
 		"v4l2loopback"
 		"snd-aloop"
+  ];
+  boot.blacklistedKernelModules = [
+		"cs35l41"
+		"spd5118"
   ];
   boot.extraModulePackages = [
 	config.boot.kernelPackages.v4l2loopback.out

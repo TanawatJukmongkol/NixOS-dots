@@ -1,0 +1,181 @@
+/*
+	Fork of https://github.com/Ruixi-rebirth/sway-dotfiles
+*/
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  // "margin": "4 7 0 7",
+  "margin": "0 0 -5 0",
+  // "width": 1920, // Comment for dynamic width
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/separator",
+    "temperature",
+    "custom/separator",
+    "idle_inhibitor",
+    // "mpd",
+	// "wlr/taskbar",
+	"custom/playerctl",
+    "custom/todo",
+  ],
+  "modules-center": [
+    "clock",
+  ],
+  "modules-right": [
+    // "network",
+    "custom/separator",
+    "bluetooth",
+	"custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "backlight",
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "battery",
+    "tray"
+  ],
+  "custom/separator": {
+    "format": "",
+    "interval": "once",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+	"on-click": "activate",
+	"sort-by-number": true,
+	/*"persistent_workspaces": {
+    	"*": 4
+    }*/
+  },
+  "clock": {
+    "format": " <span foreground='#7dcfff'>󰃭</span> {:%d %B %Y - %H:%M}  ",
+    "interval": 60,
+    "tooltip": true,
+    "tooltip-format": "{:%A, %d %B %Y}\n<tt>{calendar}</tt>"
+  },
+  /*"mpd": {
+    "max-length": 30,
+    "format": "<span foreground='#bb9af7'></span> {title}",
+    "format-paused": " <span style='italic'>{title}</span>",
+	"format-stopped":"<span foreground='#bb9af7'></span>",
+    "format-disconnected": "<span foreground='#f25e5e'></span>",
+    "on-click": "mpc --quiet toggle",
+    "on-click-right": "mpc ls | mpc add",
+    "on-click-middle": "mpv",
+    "on-scroll-up": "mpc --quiet prev",
+    "on-scroll-down": "mpc --quiet next",
+    "smooth-scrolling-threshold":5,
+    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+  },*/
+  /*"wlr/taskbar": {
+  	
+  },*/
+  "custom/playerctl": {
+	"format": " ~{}",
+	"interval": 5,
+	"exec": "playerctl metadata xesam:title | sed 's/&/\\&amp;/g; s/</\\&lt;/g; s/>/\\&gt;/g; s/\"/\\&quot;/g; s/'\"'\"'/\\&#39;/g'",
+	"max-length": 22,
+	"on-click": "playerctl play-pause",
+	"on-scroll-up": "~/.config/hypr/scripts/playerctl.sh raise",
+	"on-scroll-down": "~/.config/hypr/scripts/playerctl.sh lower"
+  },
+  "disk": {
+    "interval": 18000,
+    "format": "<span foreground='#9ece6a'>󰆼</span> {percentage_used}%",
+    "tooltip-format": "{used} used out of {total} on {path}"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "<span foreground='#e0af68'>󰍛</span> {usage}%"
+  },
+  "memory": {
+    "interval": 300,
+    "format": "<span foreground='#7aa2f7'></span> {percentage}%",
+    "tooltip-format": "{used:0.2f}GiB used out of {total:0.2f}GiB"
+  },
+  "battery": {
+    "interval": 5,
+    "design-capacity": false,
+    "states": {
+      "warning": 25,
+      "critical":10 
+    },
+    "format": "<span foreground='#f7f776'>{icon}</span> {capacity}%",
+    "format-charging": "<span foreground='#7ef78e'>{icon}</span> {capacity}%",
+    "format-time": "{H}h {M}m",
+    "format-icons": ["", "", "", "", "", ""]
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5,
+  },
+  "network": {
+    "interval": 1,
+    "format-wifi": "<span foreground='#61AF1F'>󰖩</span> {signalStrength}%",
+    "format-ethernet": "<span foreground='#61AF1F'>󰈀</span> ({ipaddr})",
+    "format-linked": "<span foreground='#61AF1F'>󱚽</span> {essid} (No IP)",
+    "format-disconnected": "<span foreground='#61AF1F'>󰖪</span> Disconnected",
+    "format": "<span foreground='#FF6261'>󰖪</span> Disabled",
+    "format-alt": "<span foreground='#61AF1F'></span> {ipaddr} - {ifname}",
+    "on-click-right": "rofi-wifi-menu",
+	"tooltip-format": "Upload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
+  },
+  "bluetooth": {
+	"format": "󰂲 {status}",
+  	"format-connected": " {controller_alias}",
+  	"format-connected-battery": " {device_battery_percentage}%",
+  	"tooltip-format": "{controller_alias}\t{controller_address}\n{num_connections} connected",
+  	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
+  	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	"on-click": "/home/arch/.config/waybar/scripts/bt_toggle.sh",
+	"on-click-right": "sleep 0.1 && rofi-bluetooth"
+  },
+  "backlight": {
+    //"device": "intel_backlight",
+    //"on-scroll-up": "light -A 5",
+    //"on-scroll-down": "light -U 5",
+    "tooltip": false,
+    "format": "<span foreground='#b48ead'>{icon}</span> {percent}%",
+    "format-icons": ["󰃞","󰃝","󰃟","󰃠"]
+  },
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "<span foreground='#d08770'>{icon}</span> {volume}% {format_source}",
+    "format-muted": "<span>󰝟 </span>{volume}% {format_source}",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "states": {
+      "warning": 85,
+    },
+    "scroll-step": 1,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"on-click-right": "pactl set-default-sink $(pactl list short sinks | awk '{print $2}' | rofi -dmenu)",
+    "on-click-middle": "pactl set-source-mute 0 toggle",
+    "format-source": "<span foreground='#00dfdf'></span> ",
+    "format-source-muted": "<span foreground='#afafaf'></span> ",
+
+	"tooltip": false,
+  },
+  "temperature": {
+    "hwmon-path": "/sys/devices/virtual/thermal/thermal_zone3/temp",
+    "format": " {temperatureC}°C",
+    "tooltip": false
+  },
+  "idle_inhibitor": {
+	"what": "handle-lid-switch",
+    "tooltip": false,
+    "format": " {icon} ",
+    "format-icons": {
+      "activated": "<span foreground='#ffaaaa'>󰐨</span>",
+      "deactivated": "<span foreground='#ffffdd'>󰤄</span>"
+    }
+  },
+}
+
