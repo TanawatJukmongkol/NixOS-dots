@@ -5,12 +5,12 @@
 	...
 } : {
 	wayland.windowManager.hyprland = {
-		# systemd.enable = false;
 		enable = true;
-		# package = pkgs.hyprland-flake.hyprland;
+		package = null;
+		portalPackage = null;
 		settings = {
 			"$mod" = "SUPER";
-			# debug = { disable_logs = false; };
+			debug = { disable_logs = false; };
 			source = [
 				"~/.config/hypr/monitors.conf"
 				"~/.config/hypr/workspaces.conf"
@@ -30,7 +30,7 @@
 				accel_profile = "flat";
 				force_no_accel = 1;
 				touchpad = {
-					disable_while_typing = false;
+					disable_while_typing = true;
 				};
 			};
 			cursor = {
@@ -85,9 +85,6 @@
 				"MOZ_ENABLE_WAYLAND,1"
 				"MOZ_DBUS_REMOTE,1"
 
-				"XMODIFIERS,@im=fcitx"
-				"QT_IM_MODULE,fcitx"
-
 				#"WLR_NO_HARDWARE_CURSORS,1"
 				#"AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 			];
@@ -107,7 +104,9 @@
 				# Clipboard
 				"$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 				# Screenshot
-				"$mod, Print, exec, hyprshot -m region"
+				"$mod, Print, exec, pidof hyprshot || hyprshot -z -m region"
+				"CTRL, Print, exec, pidof hyprshot || hyprshot -z -m window"
+				"$mod SHIFT, Print, exec, pidof hyprshot ||  hyprshot -z -m output"
 				# Window
 				"$mod, C, killactive"
 				"$mod, M, fullscreen, 1"
@@ -189,12 +188,11 @@
 				workspace_swipe_cancel_ratio = "0.35";
 				workspace_swipe_use_r = "true";
 			};
-      # windowrule = [
-      #   "animation slide, notifications"
-      # ];
-      windowrulev2 = [
+      windowrule = [
         "stayfocused, class:hyprland-share-picker"
         "dimaround, class:hyprland-share-picker"
+        # "animation slide, notifications"
+				"opacity 0.85 0.8, class:codium"
       ];
 		};
 		extraConfig = ''
@@ -308,30 +306,29 @@
 			];
 		};
 	};
-  services.mako = {
-    enable = true;
-    settings = {
-	    backgroundColor = "#282a36af";
-		textColor = "#f4f7fa";
-    	borderColor = "#282a36";
-    	progressColor = "#00ffff3a";
-    	borderRadius = 5;
-    	margin = "5, 20";
-    	width = 375;
-    	height = 175;
-    	layer = "overlay";
-		"urgency=low" = {
-			border-color = "#879a9c";
-			default-timeout = 7000;
-		};
-		"urgency=normal" = {
-			border-color = "#b0cfd1";
-			default-timeout = 10000;
-		};
-		"urgency=high" = {
-			border-color = "#d1a8f0";
+	services.mako = {
+		enable = true;
+		settings = {
+			backgroundColor = "#282a36af";
+			textColor = "#f4f7fa";
+				borderColor = "#282a36";
+				progressColor = "#00ffff3a";
+				borderRadius = 5;
+				margin = "5, 20";
+				width = 375;
+				height = 175;
+				layer = "overlay";
+			"urgency=low" = {
+				border-color = "#879a9c";
+				default-timeout = 7000;
+			};
+			"urgency=normal" = {
+				border-color = "#b0cfd1";
+				default-timeout = 10000;
+			};
+			"urgency=high" = {
+				border-color = "#d1a8f0";
+			};
 		};
 	};
-  };
-
 }

@@ -18,8 +18,12 @@
   };
   programs.hyprland = {
     enable = true;
-    # withUWSM = true;
-	};
+    xwayland.enable = true;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    # package = pkgs.hyprland-flake.hyprland;
+    # portalPackage = pkgs.hyprland-flake.xdg-desktop-portal-hyprland;
+  };
   programs.nm-applet = {
     enable = true;
     indicator = true;
@@ -32,6 +36,25 @@
       xorg.libX11
       libGL
       libGLU
+    ];
+  };
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+
+    # optional Nvidia hardware acceleration
+    package = (
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    );
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-gstreamer
+      obs-vkcapture
     ];
   };
   programs.steam = {

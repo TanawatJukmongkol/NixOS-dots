@@ -23,13 +23,13 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      # inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     stylix = {
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +51,7 @@
     nixpkgs,
     auto-cpufreq,
     home-manager,
-    hyprland,
+    # hyprland,
     stylix,
 	mikuboot,
 	zen-browser,
@@ -94,7 +94,7 @@
         specialArgs = {inherit inputs outputs; };
         modules = [
           # > Our main nixos configuration file <
-          hyprland.nixosModules.default
+          # hyprland.nixosModules.default
           auto-cpufreq.nixosModules.default
           stylix.nixosModules.stylix
           mikuboot.nixosModules.default

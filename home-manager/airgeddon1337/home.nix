@@ -89,16 +89,17 @@
 		wleave
 		wl-clipboard
 		cliphist
+		# office
+		libreoffice
 		# File management
 		# dolphin
 		kdePackages.ark
 		yazi
 		# Editors
 		#vscode-fhs
-		android-studio
+		# android-studio
 		# Media
 		mpv
-		obs-studio
 		miru
 		yt-dlp
 		subtitleeditor
@@ -108,8 +109,9 @@
 		firefox
 		chromium
 		(inputs.zen-browser.packages."x86_64-linux".default)
-
+		teams-for-linux
 		vesktop
+		tor-browser
 		# (discord.override {
 		# 	withVencord = true;
 		# })
@@ -144,13 +146,14 @@
 		nerd-fonts.fira-code
 		# programming
 		poetry
-		nix-direnv
+		unstable.norminette
 		# dart
 		flutter
 	];
 
 	home.file = {
 		".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ../../assets/config/waybar;
+		".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ../../assets/config/rofi;
 	};
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

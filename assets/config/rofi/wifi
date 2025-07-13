@@ -1,0 +1,18 @@
+# position values:
+# 1 2 3
+# 8 0 4
+# 7 6 5
+POSITION=2
+
+#y-offset
+YOFF=0
+
+#x-offset
+XOFF=0
+
+#fields to be displayed
+FIELDS=SSID,SECURITY,BARS
+
+#font
+FONT="Hack NFM 12"
+

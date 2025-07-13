@@ -12,12 +12,15 @@
 		unzip
 		brightnessctl
 		pulseaudio
-		direnv
 		bluez
 		bluez-tools
 		isoimagewriter
 		waypipe
 		pkg-config
+		nix-direnv-flakes
+		xorg.xhost
+		glxinfo
+		libva-utils
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
@@ -34,6 +37,9 @@
 		kdePackages.qtsvg
 		kdePackages.kservice
 		bluetuith
+		via
+		libdrm
+		libcamera
 		# Manuals
 		man-pages
 		man-pages-posix
@@ -64,5 +70,9 @@
 				backgroundMode = "none";
 			};
 		})
+		# Tor
+		tor
+		nyx
+		torsocks
 	];
 }

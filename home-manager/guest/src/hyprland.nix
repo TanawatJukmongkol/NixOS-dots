@@ -177,11 +177,10 @@
 				workspace_swipe_use_r = "true";
 			};
       windowrule = [
-        "animation slide, notifications"
-      ];
-      windowrulev2 = [
         "stayfocused, class:hyprland-share-picker"
         "dimaround, class:hyprland-share-picker"
+        # "animation slide, notifications"
+				"opacity 0.5 0.5, class:codium"
       ];
 		};
 		extraConfig = ''

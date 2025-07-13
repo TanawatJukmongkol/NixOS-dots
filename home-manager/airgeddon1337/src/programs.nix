@@ -251,29 +251,63 @@
 			frame_timing=1;
 		};
 	};
-	programs.vscode = {
-		enable = true;
-		mutableExtensionsDir = true;
-		package = pkgs.unstable.vscodium;
-		extensions = (with pkgs.nix-vscode-extensions; [
+	programs.vscode = let
+		common-ext = (with pkgs.nix-vscode-extensions; [
 			vscode-marketplace.leonardssh.vscord
-			# vscode-marketplace.ms-toolsai.jupyter
-			open-vsx.llvm-vs-code-extensions.vscode-clangd
 			open-vsx.medo64.render-crlf
 			open-vsx.jeanp413.open-remote-ssh
-			open-vsx.pinage404.nix-extension-pack
+			open-vsx.jnoortheen.nix-ide
+			open-vsx.mkhl.direnv
 			open-vsx.tomoki1207.pdf
 			open-vsx.ms-azuretools.vscode-docker
-			open-vsx.ms-toolsai.jupyter-renderers
-			open-vsx.ms-python.python
 		]);
-		userSettings = {
+		common-settings = {
 			"editor.renderWhitespace" = "all";
 			"terminal.integrated.enablePersistentSessions" = false;
 			"nix.enableLanguageServer" = true;
 			"nix.serverPath" = "/run/current-system/sw/bin/nixd";
 			"notebook.lineNumbers" = "on";
 			"extensions.autoUpdate" = false;
+			"workbench.colorTheme" = "Stylix";
 		};
+	in {
+		enable = true;
+		package = pkgs.unstable.vscodium;
+		mutableExtensionsDir = false;
+		profiles = {
+			default = {
+				extensions = common-ext;
+				userSettings = common-settings;
+			};
+			clang = {
+				extensions = common-ext ++ (with pkgs.nix-vscode-extensions; [
+					open-vsx.llvm-vs-code-extensions.vscode-clangd
+				]);
+				userSettings = common-settings;
+			};
+			clang-42 = {
+				extensions = common-ext ++ (with pkgs.nix-vscode-extensions; [
+					open-vsx.llvm-vs-code-extensions.vscode-clangd
+					open-vsx.mariusvanwijk-joppekoers."codam-norminette-3"
+				]);
+				userSettings = common-settings // {
+					"codam-norminette-3.highlight-color" = "rgba(255,255,0,0.05)";
+				};
+			};
+			python = {
+				extensions = common-ext ++ (with pkgs.nix-vscode-extensions; [
+					vscode-marketplace.ms-toolsai.jupyter
+					open-vsx.ms-toolsai.jupyter-renderers
+					open-vsx.ms-python.python
+				]);
+				userSettings = common-settings;
+			};
+		};
+	};
+	programs.direnv = {
+		enable = true;
+		silent = true;
+		nix-direnv.enable = true;
+		enableZshIntegration = true;
 	};
 }

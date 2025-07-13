@@ -6,12 +6,13 @@
 } : {
   services.xserver = {
     enable = true;
-	excludePackages = with pkgs; [
-		xterm
-	];
+    excludePackages = with pkgs; [
+      xterm
+    ];
     videoDrivers = [
       "modesetting"
       "nvidia"
+      "intel"
     ];
     xkb = {
       variant = "";
@@ -59,6 +60,7 @@
   # sound.enable = true;
   services.pipewire = {
     enable = true;
+    package = pkgs.pipewire;
     wireplumber.enable = true;
     alsa.enable = true;
     pulse.enable = true;
@@ -70,12 +72,14 @@
   services.udev.packages = with pkgs; [
     android-udev-rules
     maschine-mikro-mk3-driver
+    via
   ];
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
     ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"
+	SUBSYSTEM=="usb", KERNELS=="1-2", MODE="0660", GROUP="qemu"
   '';
   services.openssh = {
     enable = true;
@@ -112,17 +116,11 @@
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
-  systemd.services.disable-usb-wakeup = {
-    description = "Disable USB wakeups (XHCI)";
-    after = [ "sysinit.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "/bin/sh -c 'echo XHCI > /proc/acpi/wakeup'";
-      RemainAfterExit = true;
-    };
-  };
   systemd.sleep.extraConfig = ''
     DefaultTimeoutStopSec=5s
   '';
+  services.tor = {
+  	enable = true;
+  	openFirewall = true;
+  };
 }

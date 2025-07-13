@@ -74,6 +74,7 @@
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
       auto-optimise-store = true;
+      trusted-users = [ "root" "airgeddon1337" ];
     };
     gc = {
       automatic = true;
@@ -100,6 +101,7 @@
     realtime = {};
     audio = {};
     i2c = {};
+	qemu = {};
   };
   users.groups.libvirtd.members = [
     "airgeddon1337"
@@ -132,8 +134,10 @@
 		"input"
 		"realtime"
 		"audio"
+		"video"
 		"wireshark"
 		"i2c"
+		"qemu"
 	  ];
     };
     guest = {

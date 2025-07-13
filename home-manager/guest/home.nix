@@ -89,7 +89,6 @@
 		# vscodium
 		# Media
 		mpv
-		obs-studio
 		miru
 		yt-dlp
 		subtitleeditor
