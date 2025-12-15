@@ -6,8 +6,15 @@
 } : {
 	wayland.windowManager.hyprland = {
 		enable = true;
-		package = null;
-		portalPackage = null;
+		package = pkgs.hyprland-flake.hyprland;
+		portalPackage = pkgs.hyprland-flake.xdg-desktop-portal-hyprland;
+		# plugins = with pkgs.hyprland-plugins; [
+		plugins = with pkgs.unstable.hyprlandPlugins; [
+			hyprwinwrap
+		];
+		#  ++ (with pkgs; [
+		# 	hyprspace-flake.Hyprspace
+		# ]);
 		settings = {
 			"$mod" = "SUPER";
 			debug = { disable_logs = false; };
@@ -167,6 +174,15 @@
 				"ALT CTRL, escape, submap, passthrough"
 				"ALT, M, submap, movewindow"
 				"ALT, R, submap, resizewindow"
+
+				# Global shortcuts
+				"ALT SHIFT, F5, pass, class:com.obsproject.Studio"
+				"ALT SHIFT, F6, pass, class:com.obsproject.Studio"
+
+				# Plugin shourcut
+				
+				# Hyprspace
+				# "$mod, tab, overview:toggle,all"
 			];
 			bindel = [
 				", XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume.sh raise"
@@ -181,19 +197,17 @@
 				"$mod, mouse:272, movewindow"
 				"$mod, mouse:273, resizewindow"
 			];
-			gestures = {
-				# See https://wiki.hyprland.org/Configuring/Variables/ for more
-				workspace_swipe = "on";
-				workspace_swipe_distance = "200";
-				workspace_swipe_cancel_ratio = "0.35";
-				workspace_swipe_use_r = "true";
-			};
-      windowrule = [
-        "stayfocused, class:hyprland-share-picker"
-        "dimaround, class:hyprland-share-picker"
-        # "animation slide, notifications"
+			gesture = [
+				"3, horizontal, workspace"
+			];
+			windowrule = [
+				"stayfocused, class:hyprland-share-picker"
+				"dimaround, class:hyprland-share-picker"
+				# "animation slide, notifications"
 				"opacity 0.85 0.8, class:codium"
-      ];
+				"noscreenshare, title:(.*Private Browsing)"
+				"noscreenshare, class:^(vesktop)"
+			];
 		};
 		extraConfig = ''
 			submap = passthrough
@@ -233,10 +247,6 @@
 				}
 			}
 		'';
-		# plugins = with pkgs.hyprland-plugins; [
-		plugins = with pkgs.hyprlandPlugins; [
-			hyprwinwrap
-		];
 	};
 	programs.hyprlock = {
 		enable = true;
@@ -299,10 +309,10 @@
 					timeout = "80";
 					on-timeout = "loginctl lock-session";
 				}
-				{
-					timeout = "120";
-					on-timeout = "systemctl suspend";
-				}
+				# {
+				# 	timeout = "120";
+				# 	on-timeout = "systemctl suspend";
+				# }
 			];
 		};
 	};
@@ -331,4 +341,5 @@
 			};
 		};
 	};
+	services.xembed-sni-proxy.enable = true;
 }

@@ -21,6 +21,8 @@
 		xorg.xhost
 		glxinfo
 		libva-utils
+		envyctrl
+		wineWow64Packages.waylandFull
 		# driver
 		xp-pen-g430-driver
 		maschine-mikro-mk3-driver
@@ -52,14 +54,18 @@
 		valgrind
 		gdb
 		lldb
+		cutter
 		# Language servers
 		clang
 		clang-tools
 		nixd
+		nixfmt-rfc-style
 		# Common packags
 		git
+		git-lfs
 		# Programming Language
 		python3
+		pyenv
 		nodejs
 		# Default minimal text editor
 		nano
@@ -74,5 +80,8 @@
 		tor
 		nyx
 		torsocks
+		
+		# Torrent
+		qbittorrent
 	];
 }

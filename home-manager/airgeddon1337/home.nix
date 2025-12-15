@@ -105,6 +105,7 @@
 		subtitleeditor
 		krita
 		gimp3
+		# jetbrains.pycharm-community
 		# Internet / Social media
 		firefox
 		chromium
@@ -123,7 +124,8 @@
 		# VM
 		virt-manager
 		# Games
-		osu-lazer-bin-latest
+		# osu-lazer-bin-latest
+		osu-lazer-bin
 		prismlauncher-quacked
 		gamescope
 		godot_4
@@ -146,6 +148,7 @@
 		nerd-fonts.fira-code
 		# programming
 		poetry
+		poetryPlugins.poetry-plugin-shell
 		unstable.norminette
 		# dart
 		flutter

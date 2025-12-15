@@ -19,10 +19,10 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-    # package = pkgs.hyprland-flake.hyprland;
-    # portalPackage = pkgs.hyprland-flake.xdg-desktop-portal-hyprland;
+    # package = pkgs.unstable.hyprland;
+    # portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
+    package = pkgs.hyprland-flake.hyprland;
+    portalPackage = pkgs.hyprland-flake.xdg-desktop-portal-hyprland;
   };
   programs.nm-applet = {
     enable = true;
@@ -66,4 +66,12 @@
   programs.adb.enable = true;
   programs.partition-manager.enable = true;
   programs.wireshark.enable = true;
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+  };
+  programs.alvr = {
+    enable = true;
+    openFirewall = true;
+  };
 }

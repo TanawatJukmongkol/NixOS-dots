@@ -294,6 +294,12 @@
 					"codam-norminette-3.highlight-color" = "rgba(255,255,0,0.05)";
 				};
 			};
+			clang-UE5 = {
+				extensions = common-ext ++ (with pkgs.nix-vscode-extensions; [
+					vscode-marketplace.ms-vscode.cpptools-extension-pack
+				]);
+				userSettings = common-settings;
+			};
 			python = {
 				extensions = common-ext ++ (with pkgs.nix-vscode-extensions; [
 					vscode-marketplace.ms-toolsai.jupyter

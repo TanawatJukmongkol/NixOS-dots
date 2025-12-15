@@ -28,16 +28,20 @@
       egl-wayland
       mesa
     ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      vulkan-loader
+      vulkan-validation-layers
+    ];
   };
   hardware.nvidia = {
-    open = true;
-    nvidiaSettings = false;
+    open = false;
+    nvidiaSettings = true;
     modesetting.enable = true;
     nvidiaPersistenced = true;
     dynamicBoost.enable = true;
     powerManagement = {
       enable = true;
-      finegrained = true;
+      # finegrained = true;
     };
     prime = {
       offload = {
@@ -48,15 +52,16 @@
       nvidiaBusId = "PCI:1:0:0";
     };
     # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-    #   version = "575.57.08";
-    #   sha256_64bit = "sha256-KqcB2sGAp7IKbleMzNkB3tjUTlfWBYDwj50o3R//xvI=";
-    #   openSha256 = "sha256-hEAmFISMuXm8tbsrB+WiUcEFuSGRNZ37aKWvf0WJ2/c=";
-    #   settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
-    #   persistencedSha256 = "sha256-Len7Va4HYp5r3wMpAhL4VsPu5S0JOshPFywbO7vYnGo=";
+    #   version = "580.65.06";
+    #   sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
+    #   openSha256 = "sha256-BKe6LQ1ZSrHUOSoV6UCksUE0+TIa0WcCHZv4lagfIgA=";
+    #   settingsSha256 = "sha256-9PWmj9qG/Ms8Ol5vLQD3Dlhuw4iaFtVHNC0hSyMCU24=";
+    #   persistencedSha256 = "sha256-ETRfj2/kPbKYX1NzE0dGr/ulMuzbICIpceXdCRDkAxA=";
     # };
   };
   hardware.keyboard.qmk.enable = true;
   hardware.opentabletdriver = {
     enable = true;
   };
+  hardware.steam-hardware.enable = true;
 }

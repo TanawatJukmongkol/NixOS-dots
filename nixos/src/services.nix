@@ -84,6 +84,7 @@
   services.openssh = {
     enable = true;
     ports = [ 6969 ];
+    allowSFTP = true;
     settings = {
       PermitRootLogin = "no";
       # PasswordAuthentication = false;
@@ -113,7 +114,7 @@
     openFirewall = true;
   };
   services.printing.enable = true;
-  services.hardware.openrgb.enable = true;
+  # services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
   systemd.sleep.extraConfig = ''

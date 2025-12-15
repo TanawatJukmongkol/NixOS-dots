@@ -6,5 +6,4 @@ pkgs: {
   miru = pkgs.callPackage ./miru { };
   maschine-mikro-mk3-driver = pkgs.callPackage ./maschine-mikro-mk3-driver { };
   irssi-v123 = pkgs.callPackage ./irssi { };
-  osu-lazer-bin-latest = pkgs.callPackage ./osu-lazer-bin-latest { };
 }

@@ -29,5 +29,8 @@
 
     # Optional: Let Hyprland use wlroots (not NVIDIA GBM Vulkan backend)
     # WLR_BACKEND = "auto";
+
+	# Fix for HDMI hardware bug
+	WLR_DRM_NO_ATOMIC = 1;
   };
 }

@@ -19,17 +19,21 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-	nix-vscode-extensions = {
+    nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
-    # };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
     stylix = {
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +42,11 @@
       url = "gitlab:evysgarden/mikuboot";
       inputs.nixpkgs.follows = "nixpkgs"; # only useful for the package output
     };
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+	envycontrol = {
+		url = "github:bayasdev/envycontrol";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};
+	zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # sus
     prismlauncher = {
       url = "github:Diegiwg/PrismLauncher-Cracked";
@@ -51,10 +59,10 @@
     nixpkgs,
     auto-cpufreq,
     home-manager,
-    # hyprland,
+    hyprland,
     stylix,
-	mikuboot,
-	zen-browser,
+    mikuboot,
+    zen-browser,
 	  ...
   } @ inputs: let
     inherit (self) outputs;
@@ -78,7 +86,13 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Your custom packages and modifications, exported as overlays
-    overlays = import ./overlays {inherit inputs;};
+    overlays = import ./overlays {
+      inherit inputs;
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+    };
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
     nixosModules = import ./modules/nixos;
@@ -94,7 +108,7 @@
         specialArgs = {inherit inputs outputs; };
         modules = [
           # > Our main nixos configuration file <
-          # hyprland.nixosModules.default
+          hyprland.nixosModules.default
           auto-cpufreq.nixosModules.default
           stylix.nixosModules.stylix
           mikuboot.nixosModules.default
@@ -108,7 +122,10 @@
     homeConfigurations = {
       # FIXME replace with your username@hostname
       "airgeddon1337@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <

@@ -33,6 +33,7 @@
     ./src/stylix.nix
     ./src/stylix-nixos.nix
     ./src/environment.nix
+	./src/omen.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -138,6 +139,7 @@
 		"wireshark"
 		"i2c"
 		"qemu"
+		"omen-rgb"
 	  ];
     };
     guest = {
